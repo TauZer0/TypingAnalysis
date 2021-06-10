@@ -2,7 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++17 rtti_off warn_on
+CONFIG += c++17 rtti_off warn_on qwt
 
 DEFINES += KEYBOARD_HANDLER_DEBUG
 
@@ -89,6 +89,19 @@ HEADERS += \
   ExceptionHandler.h \
   KeyboardHandlerAccess.h \
   QtLoopException.h \
+  QwtPlotter/AppImpl.h \
+  QwtPlotter/Controller.h \
+  QwtPlotter/CurveData.h \
+  QwtPlotter/FunctionData.h \
+  QwtPlotter/FunctionPlot.h \
+  QwtPlotter/FunctionTable.h \
+  QwtPlotter/PlotMaker.h \
+  QwtPlotter/Plotter.h \
+  QwtPlotter/QtResources.h \
+  QwtPlotter/QwtApplication.h \
+  QwtPlotter/QwtPlotterWindow.h \
+  QwtPlotter/Types.h \
+  QwtPlotter/Zoomer.h \
   TimeApp.h \
   Timer.h \
   TimerAccess.h
@@ -118,12 +131,25 @@ SOURCES += \
   ApplicationImpl.cpp \
   ApplicationKernel.cpp \
   ExceptionHandler.cpp \
+  QwtPlotter/AppImpl.cpp \
+  QwtPlotter/Controller.cpp \
+  QwtPlotter/CurveData.cpp \
+  QwtPlotter/FunctionData.cpp \
+  QwtPlotter/FunctionPlot.cpp \
+  QwtPlotter/FunctionTable.cpp \
+  QwtPlotter/PlotMaker.cpp \
+  QwtPlotter/Plotter.cpp \
+  QwtPlotter/QtResources.cpp \
+  QwtPlotter/QwtApplication.cpp \
+  QwtPlotter/QwtPlotterWindow.cpp \
+  QwtPlotter/Zoomer.cpp \
   TimeApp.cpp \
   Timer.cpp \
   main.cpp
 
 FORMS += \
-  Qt/MainWindow.ui
+  Qt/MainWindow.ui \
+  QwtPlotter/QwtPlotterWindow.ui
 
 
 win32 {

@@ -2,6 +2,7 @@
 
 #include "ExceptionHandler.h"
 #include "QtLoopException.h"
+#include "QwtPlotter/QwtApplication.h"
 
 #include <QApplication>
 
@@ -11,7 +12,9 @@ int main(int argc, char* argv[]) {
   NSApp::CQtLoopExceptionInit LoopExceptions;
 
   try {
-    NSApp::CApplication Application;
+    //NSApp::CApplication Application;
+    NSApp::NSQwtPlotter::QwtApplication QwtApplication;
+    QwtApplication.Show();
     QAppLoop.exec();
   } catch (...) {
     NSApp::CExceptionHandler React;
