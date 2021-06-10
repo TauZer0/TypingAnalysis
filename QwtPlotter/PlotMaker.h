@@ -12,14 +12,13 @@ namespace NSApplication::NSQwtPlotter {
 class PlotMaker {
 public:
     PlotMaker();
-    void SubscribePlots(CObserverPlot* obs);
-    void SubscribeText(CObserverText* obs);
-    void ControlPlot(bool flag1, bool flag2);
+    void controlPlot(bool show_plot1);
+    void subscribePlot(CObserverDataOpt* obs);
+    void subscribeText(CObserverText* obs);
 
 private:
     FunctionData data1_;
-    //CurveData data2_;
-    CObservablePlot data_port_;
+    CObservableDataOpt data_port_;
 
     std::string name1_;
     std::string name2_;

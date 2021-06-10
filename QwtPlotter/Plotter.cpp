@@ -2,57 +2,59 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-Plotter::Plotter(QtResources* qresources)
-    : qresources_(qresources),
-      observer_plots_([](std::optional<std::reference_wrapper<const Plot>>) {},
-        [this](std::optional<std::reference_wrapper<const Plot>> plot) {
-            if (plot.value().get().has_value()) {
-                this->qresources_->plot1_.SetFunctionPlot(plot.value().get().value());
-                this->qresources_->plot1_.get_qwt_curve()->show();
-            } else {
-                this->qresources_->plot1_.get_qwt_curve()->hide();
-            }
-            this->qresources_->source_->replot();
-        },
-        [](std::optional<std::reference_wrapper<const Plot>>){}),
-      observer_text_([](std::optional<std::reference_wrapper<const Text>>){},
-        [](std::optional<std::reference_wrapper<const Text>>){},
-        [](std::optional<Text>){}) {
+template<typename T>
+using OptionalRef = std::optional<std::reference_wrapper<const T>>;
 
-    qresources_->GetFunctionPlot1().ConnectToSlot(this, &Plotter::ProcessCheckbox1);
-
+template<typename T>
+void noop(OptionalRef<T>) {
 }
 
-CObserverPlot* Plotter::GetPlotsInput() {
-    return &observer_plots_;
+void processData(OptionalRef<DataOpt>& function_data, QtResources* qt_resources) {
+    if (function_data.value().get().has_value()) {
+        qt_resources->setFunctionPlot1(function_data.value().get().value());
+        qt_resources->getFunctionPlot1().getQwtCurve()->show();
+    } else {
+        qt_resources->getFunctionPlot1().getQwtCurve()->hide();
+    }
+    qt_resources->replot();
+    qt_resources->updateZoomerBase();
 }
 
-CObserverText* Plotter::GetTextInput() {
+Plotter::Plotter(QtResources* qt_resources)
+    : qt_resources_(qt_resources),
+      observer_plot_(
+          [qt_resources](OptionalRef<DataOpt> function_data) {
+              processData(function_data, qt_resources);
+          },
+          [qt_resources](OptionalRef<DataOpt> function_data) {
+              processData(function_data, qt_resources);
+          },
+          noop<DataOpt>
+      ),
+      observer_text_(noop<Text>, noop<Text>, noop<Text>) {
+    qt_resources_->getFunctionPlot1().connectToSlot(this, &Plotter::processCheckbox1);
+}
+
+CObserverDataOpt* Plotter::getPlotInput() {
+    return &observer_plot_;
+}
+
+CObserverText* Plotter::getTextInput() {
     return &observer_text_;
 }
 
-void Plotter::SubscribeFlags(CObserverFlag* obs) {
-    flags_.subscribe(obs);
+void Plotter::subscribeFlag(CObserverFlag* obs) {
+    show_.subscribe(obs);
 }
 
-void Plotter::ProcessCheckbox1() {
+void Plotter::processCheckbox1() {
     QCheckBox* checkbox = static_cast<QCheckBox*>(sender());
 
     if (checkbox->isChecked()) {
-        flags_.set(true);
+        show_.set(true);
     } else {
-        flags_.set(false);
+        show_.set(false);
     }
 }
-
-//void Plotter::Replot() {
-//    if (suppressor_) {
-//        return;
-//    }
-
-//    suppressor_ = true;
-//    flags_.notify();
-//    suppressor_ = false;
-//}
 
 }  // namespace NSApplication::NSQwtPlotter

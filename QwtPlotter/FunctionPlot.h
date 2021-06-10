@@ -18,12 +18,12 @@ class FunctionPlot : public QObject {
 
 public:
     FunctionPlot(QwtPlot* source, QVBoxLayout* vbox);
-    QCheckBox* get_checkbox();
-    QwtPlotCurve* get_qwt_curve();
-    void SetFunctionPlot(const FunctionData& function_data);
+    QCheckBox* getCheckbox();
+    QwtPlotCurve* getQwtCurve();
+    void setFunctionPlot(const FunctionData& function_data);
 
     template<typename Object, typename Slot>
-    void ConnectToSlot(Object* object, Slot&& slot) {
+    void connectToSlot(Object* object, Slot&& slot) {
         connect(&checkbox_, &QCheckBox::stateChanged, object, std::forward<Slot>(slot));
     }
 
@@ -31,10 +31,9 @@ signals:
     void CheckboxSignal();
 
 protected:
-    void process_checkbox();
-    void InitCheckbox(QVBoxLayout* vbox);
-    void InitQwtCurve(QwtPlot* source);
-    void SetQwtCurve(const CurveData& curve_data);
+    void initCheckbox(QVBoxLayout* vbox);
+    void initQwtCurve(QwtPlot* source);
+    void setQwtCurve(const CurveData& curve_data);
 
 protected:
     QCheckBox checkbox_;

@@ -23,18 +23,15 @@ public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
-    QtResources* GetQResources();
-
-signals:
-    void PlotChanged();
+    QtResources* getQtResources();
 
 protected:
-   QVBoxLayout* get_box_source();
-   QwtPlot* get_plotter_source();
+   QVBoxLayout* getBoxSource();
+   QwtPlot* getPlotterSource();
 
 private:
     Ui::QwtPlotterWindow* ui_;
-    std::optional<QtResources> qresources_;
+    std::unique_ptr<QtResources> qt_resources_;
 };
 
 }  // namespace NSApplication::NSQwtPlotter

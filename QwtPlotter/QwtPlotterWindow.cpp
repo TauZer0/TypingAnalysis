@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent),
       ui_(new Ui::QwtPlotterWindow) {
     ui_->setupUi(this);
-    qresources_.emplace(get_plotter_source(), get_box_source());
+    qt_resources_ = std::make_unique<QtResources>(getPlotterSource(), getBoxSource());
     //QCheckBox* checkbox_1 = (QCheckBox*)ui_->verticalLayout_1->children()[0]; crash
 }
 
@@ -17,16 +17,16 @@ MainWindow::~MainWindow() {
     delete ui_;
 }
 
-QVBoxLayout* MainWindow::get_box_source() {
+QVBoxLayout* MainWindow::getBoxSource() {
     return ui_->vertical_layout;
 }
 
-QwtPlot* MainWindow::get_plotter_source() {
+QwtPlot* MainWindow::getPlotterSource() {
     return ui_->qwt_plot;
 }
 
-QtResources* MainWindow::GetQResources() {
-    return &qresources_.value();
+QtResources* MainWindow::getQtResources() {
+    return qt_resources_.get();
 }
 
 }  // namespace NSApplication::NSQwtPlotter

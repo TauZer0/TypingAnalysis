@@ -16,19 +16,23 @@
 namespace NSApplication::NSQwtPlotter {
 
 class QtResources {
- public:
+public:
     QtResources(QwtPlot* source, QVBoxLayout* vbox);
 
-    FunctionPlot& GetFunctionPlot1();
+    FunctionPlot& getFunctionPlot1();
+    void setFunctionPlot1(const FunctionData& function_data);
 
- private:
-    void InitGrid(QwtPlot* source);
-    void InitLegend(QwtPlot* source);
-    void InitMagnifier();
-    void InitPanner();
-    void InitZoomer();
+    void replot();
+    void updateZoomerBase();
 
- public:
+private:
+    void initGrid(QwtPlot* source);
+    void initLegend(QwtPlot* source);
+    void initMagnifier();
+    void initPanner();
+    void initZoomer();
+
+private:
     QwtPlot* source_{nullptr};
 
     QwtPlotGrid grid_;

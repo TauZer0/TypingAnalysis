@@ -10,11 +10,11 @@ class Controller {
 public:
     explicit Controller(PlotMaker* plot_maker);
 
-    CObserverFlag* GetBoolsInput();
+    CObserverFlag* getBoolInput();
 
 private:
     PlotMaker* plot_maker_{nullptr};
-    CObserverFlag bools_input_;
+    CObserverFlag bool_input_;
 };
 
 }  // namespace NSApplication::NSQwtPlotter

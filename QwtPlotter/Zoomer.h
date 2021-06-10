@@ -9,7 +9,7 @@ class Zoomer : public QwtPlotZoomer {
  public:
     Zoomer(QWidget* canvas);
     QwtText trackerTextF(const QPointF& position) const;
-    void update_base();
+    void updateBase();
 
  private:
     static constexpr int k_default_background_alpha_ = 200;

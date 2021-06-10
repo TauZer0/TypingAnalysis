@@ -11,10 +11,10 @@ class FunctionData {
 public:
     FunctionData(double begin, double end, double step, FunctionPtr function,
                  const std::string& name, const QColor& color);
-    const QColor& get_color() const;
-    const CurveData& get_curve_data() const;
-    FunctionPtr get_function() const;
-    const std::string& get_name() const;
+    const QColor& getColor() const;
+    const CurveData& getCurveData() const;
+    FunctionPtr getFunction() const;
+    const std::string& getName() const;
 
 protected:
     QColor color_;

@@ -1,14 +1,14 @@
-#include "AppImpl.h"
+#include "QwtAppImpl.h"
 
 namespace NSApplication::NSQwtPlotter {
 
-AppImpl::AppImpl(QtResources* qresources)
-    : plotter_(qresources),
+AppImpl::AppImpl(QtResources* qt_resources)
+    : plotter_(qt_resources),
       controller_(&plot_maker_)  {
 
-    plot_maker_.SubscribeText(plotter_.GetTextInput());
-    plot_maker_.SubscribePlots(plotter_.GetPlotsInput());
-    plotter_.SubscribeFlags(controller_.GetBoolsInput());
+    plotter_.subscribeFlag(controller_.getBoolInput());
+    plot_maker_.subscribeText(plotter_.getTextInput());
+    plot_maker_.subscribePlot(plotter_.getPlotInput());
 }
 
 }  // namespace NSApplication::NSQwtPlotter

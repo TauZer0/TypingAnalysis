@@ -1,5 +1,5 @@
-#ifndef APPIMPL_H
-#define APPIMPL_H
+#ifndef QWTAPPIMPL_H
+#define QWTAPPIMPL_H
 
 #include "Controller.h"
 #include "Plotter.h"
@@ -10,14 +10,14 @@ namespace NSApplication::NSQwtPlotter {
 
 class AppImpl {
 public:
-    explicit AppImpl(QtResources* qresources);
+    explicit AppImpl(QtResources* qt_resources);
 
 private:
-    Plotter plotter_;
     PlotMaker plot_maker_;
+    Plotter plotter_;
     Controller controller_;
 };
 
 }  // namespace NSApplication::NSQwtPlotter
 
-#endif // APPIMPL_H
+#endif // QWTAPPIMPL_H

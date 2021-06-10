@@ -6,10 +6,10 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-using FunctionDataRef = std::reference_wrapper<FunctionData>;
-using Plot = std::optional<FunctionDataRef>;
-using CObservablePlot = NSLibrary::CObservableData<Plot>;
-using CObserverPlot = NSLibrary::CObserver<Plot>;
+using DataRef = std::reference_wrapper<FunctionData>;
+using DataOpt = std::optional<DataRef>;
+using CObservableDataOpt = NSLibrary::CObservableData<DataOpt>;
+using CObserverDataOpt = NSLibrary::CObserver<DataOpt>;
 
 using StringRef = std::reference_wrapper<std::string>;
 using Text = std::optional<StringRef>;

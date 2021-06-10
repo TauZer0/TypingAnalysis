@@ -10,18 +10,18 @@ namespace NSApplication::NSQwtPlotter {
 class CurveData {
 public:
     CurveData() = default;
-    void add_point(double x, double y);
+    void addPoint(double x, double y);
     void generate(double begin, double end, double step, FunctionPtr function);
 
-    size_t data_size() const;
-    const double* data_X() const;
-    const double* data_Y() const;
-    const std::vector<double>& get_X() const;
-    const std::vector<double>& get_Y() const;
+    size_t dataSize() const;
+    const double* dataX() const;
+    const double* dataY() const;
+    const std::vector<double>& getX() const;
+    const std::vector<double>& getY() const;
 
 private:
-    void generate_X(double begin, double end, double step);
-    void generate_Y(FunctionPtr function);
+    void generateX(double begin, double end, double step);
+    void generateY(FunctionPtr function);
 
 private:
     std::vector<double> X_;

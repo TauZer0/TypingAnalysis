@@ -10,14 +10,14 @@ QtResources::QtResources(QwtPlot* source, QVBoxLayout* vbox)
       plot1_(source, vbox) {
     assert(source != nullptr);
     assert(vbox != nullptr);
-    InitGrid(source);
-    InitLegend(source);
-    InitMagnifier();
-    InitPanner();
-    InitZoomer();
+    initGrid(source);
+    initLegend(source);
+    initMagnifier();
+    initPanner();
+    initZoomer();
 }
 
-void QtResources::InitGrid(QwtPlot* source) {
+void QtResources::initGrid(QwtPlot* source) {
     grid_.enableXMin(true);
     grid_.enableYMin(true);
     grid_.setMajorPen(QPen(Qt::black, 0, Qt::DotLine));
@@ -25,31 +25,43 @@ void QtResources::InitGrid(QwtPlot* source) {
     grid_.attach(source);
 }
 
-void QtResources::InitLegend(QwtPlot* source) {
+void QtResources::initLegend(QwtPlot* source) {
     source->insertLegend(&legend_, QwtPlot::BottomLegend);
     source->setCanvasBackground(Qt::white);
     source->setAxisTitle(QwtPlot::xBottom, "X");
     source->setAxisTitle(QwtPlot::yLeft, "Y");
 }
 
-void QtResources::InitMagnifier() {
+void QtResources::initMagnifier() {
     magnifier_.setMouseButton(Qt::NoButton);
     magnifier_.setWheelModifiers(Qt::ControlModifier);
 }
 
-void QtResources::InitPanner() {
+void QtResources::initPanner() {
     panner_.setMouseButton(Qt::MiddleButton);
 }
 
-void QtResources::InitZoomer() {
+void QtResources::initZoomer() {
     zoomer_.setRubberBandPen(QPen(Qt::darkBlue));
     zoomer_.setTrackerPen(QPen(Qt::darkBlue));
     zoomer_.setMousePattern(QwtEventPattern::MouseSelect2, Qt::RightButton, Qt::ControlModifier);
     zoomer_.setMousePattern(QwtEventPattern::MouseSelect3, Qt::RightButton);
 }
 
-FunctionPlot& QtResources::GetFunctionPlot1() {
+FunctionPlot& QtResources::getFunctionPlot1() {
     return plot1_;
+}
+
+void QtResources::setFunctionPlot1(const FunctionData& function_data) {
+    plot1_.setFunctionPlot(function_data);
+}
+
+void QtResources::replot() {
+    source_->replot();
+}
+
+void QtResources::updateZoomerBase() {
+    zoomer_.updateBase();
 }
 
 }  // namespace NSApplication::NSQwtPlotter

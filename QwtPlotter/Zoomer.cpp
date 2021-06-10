@@ -14,7 +14,7 @@ QwtText Zoomer::trackerTextF(const QPointF& position) const {
     return text;
 }
 
-void Zoomer::update_base() {
+void Zoomer::updateBase() {
     setZoomBase(scaleRect());
 }
 

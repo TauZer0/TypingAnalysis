@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
   try {
     //NSApp::CApplication Application;
     NSApp::NSQwtPlotter::QwtApplication QwtApplication;
-    QwtApplication.Show();
+    QwtApplication.show();
     QAppLoop.exec();
   } catch (...) {
     NSApp::CExceptionHandler React;

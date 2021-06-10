@@ -89,7 +89,6 @@ HEADERS += \
   ExceptionHandler.h \
   KeyboardHandlerAccess.h \
   QtLoopException.h \
-  QwtPlotter/AppImpl.h \
   QwtPlotter/Controller.h \
   QwtPlotter/CurveData.h \
   QwtPlotter/FunctionData.h \
@@ -98,6 +97,7 @@ HEADERS += \
   QwtPlotter/PlotMaker.h \
   QwtPlotter/Plotter.h \
   QwtPlotter/QtResources.h \
+  QwtPlotter/QwtAppImpl.h \
   QwtPlotter/QwtApplication.h \
   QwtPlotter/QwtPlotterWindow.h \
   QwtPlotter/Types.h \
@@ -131,7 +131,6 @@ SOURCES += \
   ApplicationImpl.cpp \
   ApplicationKernel.cpp \
   ExceptionHandler.cpp \
-  QwtPlotter/AppImpl.cpp \
   QwtPlotter/Controller.cpp \
   QwtPlotter/CurveData.cpp \
   QwtPlotter/FunctionData.cpp \
@@ -140,6 +139,7 @@ SOURCES += \
   QwtPlotter/PlotMaker.cpp \
   QwtPlotter/Plotter.cpp \
   QwtPlotter/QtResources.cpp \
+  QwtPlotter/QwtAppImpl.cpp \
   QwtPlotter/QwtApplication.cpp \
   QwtPlotter/QwtPlotterWindow.cpp \
   QwtPlotter/Zoomer.cpp \
