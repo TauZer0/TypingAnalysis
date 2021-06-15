@@ -17,28 +17,30 @@ namespace NSApplication::NSQwtPlotter {
 
 class Plotter : public QObject {
 public:
-    Plotter(QtResources* qt_resources);
+  Plotter(QtResources* qt_resources);
 
-    CObserverDataOpt* getPlotInput();
-    CObserverText* getTextInput();
+  CObserverRefHolder* getPlotInput();
+  CObserverText* getTextInput();
 
-    void subscribeFlag(CObserverFlag* obs);
+  void subscribeFlag(CObserverFlags* obs);
 
 public slots:
-    void processCheckbox1();
+  void processCheckbox1();
+  void processCheckbox2();
 
-//private:
-//    static void processData(QtResources* qt_resources);
+  // private:
+  //    static void processData(QtResources* qt_resources);
 
 private:
-    QtResources* qt_resources_{nullptr};
-    bool suppressor_{false};
+  QtResources* qt_resources_{nullptr};
+  bool suppressor_{false};
 
-    CObserverDataOpt observer_plot_;
-    CObserverText observer_text_;
-    CObservableFlag show_{true};
+  CObserverRefHolder observer_plot_;
+  CObserverText observer_text_;
+  Flags visible_plots_{true, true};
+  CObservableFlags flags_output_;
 };
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // PLOTTER_H

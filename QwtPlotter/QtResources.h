@@ -2,6 +2,7 @@
 #define QRESOURCES_H
 
 #include "FunctionPlot.h"
+#include "FunctionWithIntervalsPlot.h"
 #include "Zoomer.h"
 
 #include <qwt_legend.h>
@@ -17,33 +18,36 @@ namespace NSApplication::NSQwtPlotter {
 
 class QtResources {
 public:
-    QtResources(QwtPlot* source, QVBoxLayout* vbox);
+  QtResources(QwtPlot* source, QVBoxLayout* vbox);
 
-    FunctionPlot& getFunctionPlot1();
-    void setFunctionPlot1(const FunctionData& function_data);
+  FunctionPlot& getFunctionPlot1();
+  FunctionWithIntervalsPlot& getFunctionPlot2();
+  void setFunctionPlot1(const FunctionData& function_data);
+  void setFunctionPlot2(const FunctionWithIntervalsData& function_data);
 
-    void replot();
-    void updateZoomerBase();
-
-private:
-    void initGrid(QwtPlot* source);
-    void initLegend(QwtPlot* source);
-    void initMagnifier();
-    void initPanner();
-    void initZoomer();
+  void replot();
+  void updateZoomerBase();
 
 private:
-    QwtPlot* source_{nullptr};
+  void initGrid(QwtPlot* source);
+  void initLegend(QwtPlot* source);
+  void initMagnifier();
+  void initPanner();
+  void initZoomer();
 
-    QwtPlotGrid grid_;
-    QwtLegend legend_;
-    QwtPlotMagnifier magnifier_;
-    QwtPlotPanner panner_;
-    Zoomer zoomer_;
+private:
+  QwtPlot* source_{nullptr};
 
-    FunctionPlot plot1_;
+  QwtPlotGrid grid_;
+  QwtLegend legend_;
+  QwtPlotMagnifier magnifier_;
+  QwtPlotPanner panner_;
+  Zoomer zoomer_;
+
+  FunctionPlot plot1_;
+  FunctionWithIntervalsPlot plot2_;
 };
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // QRESOURCES_H

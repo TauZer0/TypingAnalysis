@@ -6,15 +6,15 @@
 namespace NSApplication::NSQwtPlotter {
 
 class Zoomer : public QwtPlotZoomer {
- public:
-    Zoomer(QWidget* canvas);
-    QwtText trackerTextF(const QPointF& position) const;
-    void updateBase();
+public:
+  Zoomer(QWidget* canvas);
+  QwtText trackerTextF(const QPointF& position) const;
+  void updateBase();
 
- private:
-    static constexpr int k_default_background_alpha_ = 200;
+private:
+  static constexpr int k_default_background_alpha_ = 200;
 };
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // ZOOMER_H

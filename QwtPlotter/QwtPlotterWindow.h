@@ -17,23 +17,23 @@ QT_END_NAMESPACE
 namespace NSApplication::NSQwtPlotter {
 
 class MainWindow : public QMainWindow {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+  MainWindow(QWidget* parent = nullptr);
+  ~MainWindow();
 
-    QtResources* getQtResources();
+  QtResources* getQtResources();
 
 protected:
-   QVBoxLayout* getBoxSource();
-   QwtPlot* getPlotterSource();
+  QVBoxLayout* getBoxSource();
+  QwtPlot* getPlotterSource();
 
 private:
-    Ui::QwtPlotterWindow* ui_;
-    std::unique_ptr<QtResources> qt_resources_;
+  Ui::QwtPlotterWindow* ui_;
+  std::unique_ptr<QtResources> qt_resources_;
 };
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // QWTPLOTTERWINDOW_H

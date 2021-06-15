@@ -3,30 +3,43 @@
 
 #include <QCheckBox>
 
-#include "Library/Observer/Observer.h"
 #include "FunctionData.h"
+#include "FunctionWithIntervalsData.h"
+#include "Library/Observer/Observer.h"
 #include "Types.h"
 
 namespace NSApplication::NSQwtPlotter {
 
 class PlotMaker {
 public:
-    PlotMaker();
-    void controlPlot(bool show_plot1);
-    void subscribePlot(CObserverDataOpt* obs);
-    void subscribeText(CObserverText* obs);
+  PlotMaker();
+  void controlPlot(bool show_plot1, bool show_plot2);
+  void subscribePlot(CObserverRefHolder* obs);
+  void subscribeText(CObserverText* obs);
 
 private:
-    FunctionData data1_;
-    CObservableDataOpt data_port_;
+  template<typename T>
+  void setRef(OptionalRef<T>& ref_holder, T& data, bool flag) {
+    if (flag) {
+      ref_holder.emplace(std::ref(data));
+    } else {
+      ref_holder.reset();
+    }
+  }
 
-    std::string name1_;
-    std::string name2_;
-    CObservableText text_port_;
+private:
+  FunctionData data1_;
+  FunctionWithIntervalsData data2_;
+  RefHolder data_refs_;
+  CObservableRefHolder data_port_;
 
-    bool suppressor_{false};
+  std::string name1_;
+  std::string name2_;
+  CObservableText text_port_;
+
+  bool suppressor_{false};
 };
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // PLOTMAKER_H

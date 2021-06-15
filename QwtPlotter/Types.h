@@ -2,23 +2,40 @@
 #define TYPES_H
 
 #include "FunctionData.h"
+#include "FunctionWithIntervalsData.h"
 #include "Library/Observer/Observer.h"
 
 namespace NSApplication::NSQwtPlotter {
 
-using DataRef = std::reference_wrapper<FunctionData>;
-using DataOpt = std::optional<DataRef>;
-using CObservableDataOpt = NSLibrary::CObservableData<DataOpt>;
-using CObserverDataOpt = NSLibrary::CObserver<DataOpt>;
+// namespace NSDetail { ?
+
+template<typename T>
+using OptionalRef = std::optional<std::reference_wrapper<T>>;
+
+struct RefHolder {
+  OptionalRef<FunctionData> optional_ref1_;
+  OptionalRef<FunctionWithIntervalsData> optional_ref2_;
+};
+
+struct Flags {
+  bool plot1_{false};
+  bool plot2_{false};
+};
+
+//} // namespace NSDetail
+
+// TODO
+using CObservableRefHolder = NSLibrary::CObservableData<RefHolder>;
+using CObserverRefHolder = NSLibrary::CHotInput<RefHolder>;
 
 using StringRef = std::reference_wrapper<std::string>;
 using Text = std::optional<StringRef>;
 using CObservableText = NSLibrary::CObservableData<Text>;
 using CObserverText = NSLibrary::CObserver<Text>;
 
-using CObservableFlag = NSLibrary::CObservableData<bool>;
-using CObserverFlag = NSLibrary::CObserver<bool>;
+using CObservableFlags = NSLibrary::CObservable<Flags>;
+using CObserverFlags = NSLibrary::CHotInput<Flags>;
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // TYPES_H

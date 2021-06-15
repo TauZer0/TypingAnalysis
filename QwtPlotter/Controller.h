@@ -8,15 +8,15 @@ namespace NSApplication::NSQwtPlotter {
 
 class Controller {
 public:
-    explicit Controller(PlotMaker* plot_maker);
+  explicit Controller(PlotMaker* plot_maker);
 
-    CObserverFlag* getBoolInput();
+  CObserverFlags* getBoolInput();
 
 private:
-    PlotMaker* plot_maker_{nullptr};
-    CObserverFlag bool_input_;
+  PlotMaker* plot_maker_{nullptr};
+  CObserverFlags bool_input_;
 };
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // CONTROLLER_H

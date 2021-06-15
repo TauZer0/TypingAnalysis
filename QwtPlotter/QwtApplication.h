@@ -10,14 +10,14 @@ namespace NSApplication::NSQwtPlotter {
 
 class QwtApplication {
 public:
-    QwtApplication();
-    void show();
+  QwtApplication();
+  void show();
 
 private:
-    std::unique_ptr<MainWindow> main_window_{nullptr};
-    std::unique_ptr<AppImpl> app_impl_{nullptr};
+  std::unique_ptr<MainWindow> main_window_{nullptr};
+  std::unique_ptr<AppImpl> app_impl_{nullptr};
 };
 
-}  // namespace NSApplication::NSQwtPlotter
+} // namespace NSApplication::NSQwtPlotter
 
 #endif // QWTAPPLICATION_H

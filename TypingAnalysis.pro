@@ -94,6 +94,8 @@ HEADERS += \
   QwtPlotter/FunctionData.h \
   QwtPlotter/FunctionPlot.h \
   QwtPlotter/FunctionTable.h \
+  QwtPlotter/FunctionWithIntervalsData.h \
+  QwtPlotter/FunctionWithIntervalsPlot.h \
   QwtPlotter/PlotMaker.h \
   QwtPlotter/Plotter.h \
   QwtPlotter/QtResources.h \
@@ -136,6 +138,8 @@ SOURCES += \
   QwtPlotter/FunctionData.cpp \
   QwtPlotter/FunctionPlot.cpp \
   QwtPlotter/FunctionTable.cpp \
+  QwtPlotter/FunctionWithIntervalsData.cpp \
+  QwtPlotter/FunctionWithIntervalsPlot.cpp \
   QwtPlotter/PlotMaker.cpp \
   QwtPlotter/Plotter.cpp \
   QwtPlotter/QtResources.cpp \
