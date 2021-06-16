@@ -4,16 +4,16 @@
 
 namespace NSApplication::NSSupport {
 
-LogDuration::LogDuration(const std::string& msg)
-    : message(msg + ": "), start(std::chrono::steady_clock::now()) {
+LogDuration::LogDuration(const std::string& message)
+    : Message_(message + ": "), Start_(std::chrono::steady_clock::now()) {
 }
 
 LogDuration::~LogDuration() {
   auto finish = std::chrono::steady_clock::now();
-  auto dur = finish - start;
+  auto duration = finish - Start_;
   std::cerr
-      << message
-      << std::chrono::duration_cast<std::chrono::microseconds>(dur).count()
+      << Message_
+      << std::chrono::duration_cast<std::chrono::microseconds>(duration).count()
       << " \u03BCs\n";
 }
 

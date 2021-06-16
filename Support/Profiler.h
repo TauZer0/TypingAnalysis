@@ -8,12 +8,12 @@ namespace NSApplication::NSSupport {
 
 class LogDuration {
 public:
-  explicit LogDuration(const std::string& msg = "");
+  explicit LogDuration(const std::string& message = "");
   ~LogDuration();
 
 private:
-  std::string message;
-  std::chrono::steady_clock::time_point start;
+  std::string Message_;
+  std::chrono::steady_clock::time_point Start_;
 };
 
 #define UNIQ_ID_IMPL(lineno) _a_local_var_##lineno
