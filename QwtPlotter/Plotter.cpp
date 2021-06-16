@@ -53,23 +53,18 @@ void Plotter::subscribeFlag(CObserverFlags* obs) {
 }
 
 void Plotter::processCheckbox1() {
-  QCheckBox* checkbox = static_cast<QCheckBox*>(sender());
-
-  if (checkbox->isChecked()) {
-    visible_plots_.plot1_ = true;
-  } else {
-    visible_plots_.plot1_ = false;
-  }
-  flags_output_.notify();
+  processCheckboxImpl(static_cast<QCheckBox*>(sender()), visible_plots_.plot1_);
 }
 
 void Plotter::processCheckbox2() {
-  QCheckBox* checkbox = static_cast<QCheckBox*>(sender());
+  processCheckboxImpl(static_cast<QCheckBox*>(sender()), visible_plots_.plot2_);
+}
 
+void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
   if (checkbox->isChecked()) {
-    visible_plots_.plot2_ = true;
+    is_visible = true;
   } else {
-    visible_plots_.plot2_ = false;
+    is_visible = false;
   }
   flags_output_.notify();
 }

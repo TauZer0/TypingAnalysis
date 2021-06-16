@@ -31,6 +31,8 @@ public slots:
 
   // private:
   //    static void processData(QtResources* qt_resources);
+private:
+  void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
 
 private:
   QtResources* qt_resources_{nullptr};
