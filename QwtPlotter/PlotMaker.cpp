@@ -2,6 +2,8 @@
 
 #include "FunctionTable.h"
 
+#include <mutex>
+
 namespace NSApplication::NSQwtPlotter {
 
 static FunctionTable function_table;
@@ -32,16 +34,15 @@ void PlotMaker::subscribeText(CObserverText* obs) {
 }
 
 void PlotMaker::controlPlot(bool show_plot1, bool show_plot2) {
-  if (suppressor_) {
+  if (suppressor_.isActive()) {
     return;
   }
 
-  suppressor_ = true;
+  std::lock_guard guard(suppressor_);
   setRef(data_refs_.optional_ref1_, data1_, show_plot1);
   setRef(data_refs_.optional_ref2_, data2_, show_plot2);
 
   data_port_.set(data_refs_);
-  suppressor_ = false;
 }
 
 } // namespace NSApplication::NSQwtPlotter

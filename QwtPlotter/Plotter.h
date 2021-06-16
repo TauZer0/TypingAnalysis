@@ -2,6 +2,7 @@
 #define PLOTTER_H
 
 #include "PlotMaker.h"
+#include "Support/Suppressor.h"
 
 #include <qwt_plot.h>
 #include <qwt_plot_curve.h>
@@ -33,7 +34,7 @@ public slots:
 
 private:
   QtResources* qt_resources_{nullptr};
-  bool suppressor_{false};
+  NSSupport::Suppressor suppressor_;
 
   CObserverRefHolder observer_plot_;
   CObserverText observer_text_;

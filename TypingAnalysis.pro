@@ -104,6 +104,7 @@ HEADERS += \
   QwtPlotter/QwtPlotterWindow.h \
   QwtPlotter/Types.h \
   QwtPlotter/Zoomer.h \
+  Support/Suppressor.h \
   TimeApp.h \
   Timer.h \
   TimerAccess.h
@@ -147,6 +148,7 @@ SOURCES += \
   QwtPlotter/QwtApplication.cpp \
   QwtPlotter/QwtPlotterWindow.cpp \
   QwtPlotter/Zoomer.cpp \
+  Support/Suppressor.cpp \
   TimeApp.cpp \
   Timer.cpp \
   main.cpp

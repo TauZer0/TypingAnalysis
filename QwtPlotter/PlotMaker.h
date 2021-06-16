@@ -1,6 +1,7 @@
 #ifndef PLOTMAKER_H
 #define PLOTMAKER_H
 
+#include "Support/Suppressor.h"
 #include <QCheckBox>
 
 #include "FunctionData.h"
@@ -37,7 +38,7 @@ private:
   std::string name2_;
   CObservableText text_port_;
 
-  bool suppressor_{false};
+  NSSupport::Suppressor suppressor_;
 };
 
 } // namespace NSApplication::NSQwtPlotter
