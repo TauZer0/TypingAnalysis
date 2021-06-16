@@ -1,7 +1,9 @@
 #include "Plotter.h"
+#include "Support/Profiler.h"
 
 namespace NSApplication::NSQwtPlotter {
 
+// TODO
 template<typename T>
 void noop(OptionalRef<const T>) {
 }
@@ -23,6 +25,7 @@ void processData(RefHolder& functions_data, QtResources* qt_resources) {
     qt_resources->getFunctionPlot2().hide();
   }
 
+  NSSupport::LOG_DURATION("Replot duration");
   qt_resources->replot();
   qt_resources->updateZoomerBase();
 }
