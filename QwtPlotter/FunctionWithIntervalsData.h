@@ -16,8 +16,8 @@ public:
   int getIntervalsOpacity() const;
 
 private:
-  std::vector<CurveData> intervals_data_;
-  static constexpr int k_intervals_opacity_ = 50;
+  std::vector<CurveData> IntervalsData_;
+  static constexpr int kIntervalsOpacity_ = 50;
 };
 
 } // namespace NSApplication::NSQwtPlotter

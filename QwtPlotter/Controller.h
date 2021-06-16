@@ -13,8 +13,8 @@ public:
   CObserverFlags* getBoolInput();
 
 private:
-  PlotMaker* plot_maker_{nullptr};
-  CObserverFlags bool_input_;
+  PlotMaker* PlotMaker_{nullptr};
+  CObserverFlags BoolInput_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

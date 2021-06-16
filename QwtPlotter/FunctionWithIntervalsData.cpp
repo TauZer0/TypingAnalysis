@@ -13,8 +13,8 @@ FunctionWithIntervalsData::FunctionWithIntervalsData(double begin, double end,
 void FunctionWithIntervalsData::createIntervalData(double begin, double end) {
   CurveData interval_data;
 
-  for (auto it = curve_data_.getX().begin(), jt = curve_data_.getY().begin();
-       it < curve_data_.getX().end() && jt < curve_data_.getY().end();
+  for (auto it = CurveData_.getX().begin(), jt = CurveData_.getY().begin();
+       it < CurveData_.getX().end() && jt < CurveData_.getY().end();
        ++it, ++jt) {
     if (*it < begin) {
       continue;
@@ -25,19 +25,19 @@ void FunctionWithIntervalsData::createIntervalData(double begin, double end) {
     interval_data.addPoint(*it, *jt);
   }
 
-  intervals_data_.emplace_back(std::move(interval_data));
+  IntervalsData_.emplace_back(std::move(interval_data));
 }
 
 const CurveData& FunctionWithIntervalsData::getIntervalData(size_t i) const {
-  return intervals_data_[i];
+  return IntervalsData_[i];
 }
 
 size_t FunctionWithIntervalsData::getIntervalsDataSize() const {
-  return intervals_data_.size();
+  return IntervalsData_.size();
 }
 
 int FunctionWithIntervalsData::getIntervalsOpacity() const {
-  return k_intervals_opacity_;
+  return kIntervalsOpacity_;
 }
 
 } // namespace NSApplication::NSQwtPlotter

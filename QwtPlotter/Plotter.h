@@ -35,13 +35,13 @@ private:
   void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
 
 private:
-  QtResources* qt_resources_{nullptr};
-  NSSupport::Suppressor suppressor_;
+  QtResources* QtResources_{nullptr};
+  NSSupport::Suppressor Suppressor_;
 
-  CObserverRefHolder observer_plot_;
-  CObserverText observer_text_;
-  Flags visible_plots_{true, true};
-  CObservableFlags flags_output_;
+  CObserverRefHolder ObserverPlot_;
+  CObserverText ObserverText_;
+  Flags VisiblePlots_{true, true};
+  CObservableFlags FlagsOutput_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

@@ -30,8 +30,8 @@ protected:
   QwtPlot* getPlotterSource();
 
 private:
-  Ui::QwtPlotterWindow* ui_;
-  std::unique_ptr<QtResources> qt_resources_;
+  Ui::QwtPlotterWindow* Ui_;
+  std::unique_ptr<QtResources> QtResources_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

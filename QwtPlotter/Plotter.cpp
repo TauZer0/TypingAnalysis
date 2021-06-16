@@ -31,36 +31,36 @@ void processData(RefHolder& functions_data, QtResources* qt_resources) {
 }
 
 Plotter::Plotter(QtResources* qt_resources)
-    : qt_resources_(qt_resources),
-      observer_plot_([qt_resources](RefHolder function_data) {
+    : QtResources_(qt_resources),
+      ObserverPlot_([qt_resources](RefHolder function_data) {
         processData(function_data, qt_resources);
       }),
-      observer_text_(noop<Text>, noop<Text>, noop<Text>) {
-  flags_output_.setSource([this]() { return std::ref(visible_plots_); });
-  qt_resources_->getFunctionPlot1().connectToSlot(this,
-                                                  &Plotter::processCheckbox1);
-  qt_resources_->getFunctionPlot2().connectToSlot(this,
-                                                  &Plotter::processCheckbox2);
+      ObserverText_(noop<Text>, noop<Text>, noop<Text>) {
+  FlagsOutput_.setSource([this]() { return std::ref(VisiblePlots_); });
+  QtResources_->getFunctionPlot1().connectToSlot(this,
+                                                 &Plotter::processCheckbox1);
+  QtResources_->getFunctionPlot2().connectToSlot(this,
+                                                 &Plotter::processCheckbox2);
 }
 
 CObserverRefHolder* Plotter::getPlotInput() {
-  return &observer_plot_;
+  return &ObserverPlot_;
 }
 
 CObserverText* Plotter::getTextInput() {
-  return &observer_text_;
+  return &ObserverText_;
 }
 
 void Plotter::subscribeFlag(CObserverFlags* obs) {
-  flags_output_.subscribe(obs);
+  FlagsOutput_.subscribe(obs);
 }
 
 void Plotter::processCheckbox1() {
-  processCheckboxImpl(static_cast<QCheckBox*>(sender()), visible_plots_.plot1_);
+  processCheckboxImpl(static_cast<QCheckBox*>(sender()), VisiblePlots_.plot1_);
 }
 
 void Plotter::processCheckbox2() {
-  processCheckboxImpl(static_cast<QCheckBox*>(sender()), visible_plots_.plot2_);
+  processCheckboxImpl(static_cast<QCheckBox*>(sender()), VisiblePlots_.plot2_);
 }
 
 void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
@@ -69,7 +69,7 @@ void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
   } else {
     is_visible = false;
   }
-  flags_output_.notify();
+  FlagsOutput_.notify();
 }
 
 } // namespace NSApplication::NSQwtPlotter

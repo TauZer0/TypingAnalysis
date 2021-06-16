@@ -27,7 +27,7 @@ public:
 
   template<typename Object, typename Slot>
   void connectToSlot(Object* object, Slot&& slot) {
-    connect(&checkbox_, &QCheckBox::stateChanged, object,
+    connect(&Checkbox_, &QCheckBox::stateChanged, object,
             std::forward<Slot>(slot));
   }
 
@@ -40,8 +40,8 @@ protected:
   void setQwtCurve(const CurveData& curve_data);
 
 protected:
-  QCheckBox checkbox_;
-  QwtPlotCurve qwt_curve_;
+  QCheckBox Checkbox_;
+  QwtPlotCurve QwtCurve_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

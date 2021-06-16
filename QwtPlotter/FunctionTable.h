@@ -17,7 +17,7 @@ public:
   FunctionPtr operator[](FunctionName&& name);
 
 private:
-  std::map<FunctionName, FunctionPtr> function_map_;
+  std::map<FunctionName, FunctionPtr> FunctionMap_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

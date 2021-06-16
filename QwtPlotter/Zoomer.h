@@ -12,7 +12,7 @@ public:
   void updateBase();
 
 private:
-  static constexpr int k_default_background_alpha_ = 200;
+  static constexpr int kDefaultBackgroundAlpha_ = 200;
 };
 
 } // namespace NSApplication::NSQwtPlotter

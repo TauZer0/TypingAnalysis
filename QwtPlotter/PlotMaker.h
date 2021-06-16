@@ -29,16 +29,16 @@ private:
   }
 
 private:
-  FunctionData data1_;
-  FunctionWithIntervalsData data2_;
-  RefHolder data_refs_;
-  CObservableRefHolder data_port_;
+  FunctionData Data1_;
+  FunctionWithIntervalsData Data2_;
+  RefHolder DataRefs_;
+  CObservableRefHolder DataPort_;
 
-  std::string name1_;
-  std::string name2_;
-  CObservableText text_port_;
+  std::string Name1_;
+  std::string Name2_;
+  CObservableText TextPort_;
 
-  NSSupport::Suppressor suppressor_;
+  NSSupport::Suppressor Suppressor_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

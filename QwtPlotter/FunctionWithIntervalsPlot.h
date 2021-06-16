@@ -25,8 +25,8 @@ private:
   void setQwtIntervals(const FunctionWithIntervalsData& function_data);
 
 private:
-  QwtPlot* source_{nullptr};
-  std::vector<std::unique_ptr<QwtPlotCurve>> qwt_intervals_;
+  QwtPlot* Source_{nullptr};
+  std::vector<std::unique_ptr<QwtPlotCurve>> QwtIntervals_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

@@ -13,9 +13,9 @@ public:
   explicit AppImpl(QtResources* qt_resources);
 
 private:
-  PlotMaker plot_maker_;
-  Plotter plotter_;
-  Controller controller_;
+  PlotMaker PlotMaker_;
+  Plotter Plotter_;
+  Controller Controller_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

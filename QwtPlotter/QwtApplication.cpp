@@ -3,12 +3,12 @@
 namespace NSApplication::NSQwtPlotter {
 
 QwtApplication::QwtApplication()
-    : main_window_(std::make_unique<MainWindow>()),
-      app_impl_(std::make_unique<AppImpl>(main_window_->getQtResources())) {
+    : MainWindow_(std::make_unique<MainWindow>()),
+      AppImpl_(std::make_unique<AppImpl>(MainWindow_->getQtResources())) {
 }
 
 void QwtApplication::show() {
-  main_window_->show();
+  MainWindow_->show();
 }
 
 } // namespace NSApplication::NSQwtPlotter

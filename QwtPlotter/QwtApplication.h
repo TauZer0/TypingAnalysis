@@ -14,8 +14,8 @@ public:
   void show();
 
 private:
-  std::unique_ptr<MainWindow> main_window_{nullptr};
-  std::unique_ptr<AppImpl> app_impl_{nullptr};
+  std::unique_ptr<MainWindow> MainWindow_{nullptr};
+  std::unique_ptr<AppImpl> AppImpl_{nullptr};
 };
 
 } // namespace NSApplication::NSQwtPlotter

@@ -17,10 +17,10 @@ public:
   const std::string& getName() const;
 
 protected:
-  QColor color_;
-  CurveData curve_data_;
-  FunctionPtr function_;
-  std::string name_;
+  QColor Color_;
+  CurveData CurveData_;
+  FunctionPtr Function_;
+  std::string Name_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

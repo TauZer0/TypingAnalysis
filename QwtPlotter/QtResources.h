@@ -36,16 +36,16 @@ private:
   void initZoomer();
 
 private:
-  QwtPlot* source_{nullptr};
+  QwtPlot* Source_{nullptr};
 
-  QwtPlotGrid grid_;
-  QwtLegend legend_;
-  QwtPlotMagnifier magnifier_;
-  QwtPlotPanner panner_;
-  Zoomer zoomer_;
+  QwtPlotGrid Grid_;
+  QwtLegend Legend_;
+  QwtPlotMagnifier Magnifier_;
+  QwtPlotPanner Panner_;
+  Zoomer Zoomer_;
 
-  FunctionPlot plot1_;
-  FunctionWithIntervalsPlot plot2_;
+  FunctionPlot Plot1_;
+  FunctionWithIntervalsPlot Plot2_;
 };
 
 } // namespace NSApplication::NSQwtPlotter
