@@ -20,17 +20,9 @@ class QtResources {
 public:
   QtResources(QwtPlot* source, QVBoxLayout* vbox);
 
-  FunctionPlot& getFunctionPlot1();
-  FunctionPlot& getFunctionPlot2();
-  FunctionWithIntervalsPlot& getFunctionPlot3();
-
-  void showFunctionPlot1(const FunctionData& function_data);
-  void showFunctionPlot2(const FunctionData& function_data);
-  void showFunctionPlot3(const FunctionWithIntervalsData& function_data);
-
-  void hideFunctionPlot1();
-  void hideFunctionPlot2();
-  void hideFunctionPlot3();
+  FunctionPlot* getFunctionPlot1();
+  FunctionPlot* getFunctionPlot2();
+  FunctionWithIntervalsPlot* getFunctionPlot3();
 
   void replot();
   void updateZoomerBase();

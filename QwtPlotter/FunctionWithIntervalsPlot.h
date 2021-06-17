@@ -9,9 +9,11 @@ namespace NSApplication::NSQwtPlotter {
 class FunctionWithIntervalsPlot : public FunctionPlot {
 public:
   FunctionWithIntervalsPlot(QwtPlot* source, QVBoxLayout* vbox);
+
   const std::vector<std::unique_ptr<QwtPlotCurve>>& getQwtIntervals() const;
 
   void setDataWithIntervals(const FunctionWithIntervalsData& function_data);
+
   void show() override;
   void hide() override;
 

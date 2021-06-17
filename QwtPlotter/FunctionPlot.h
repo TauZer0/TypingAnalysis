@@ -18,8 +18,10 @@ class FunctionPlot : public QObject {
 
 public:
   FunctionPlot(QwtPlot* source, QVBoxLayout* vbox);
+
   QCheckBox* getCheckbox();
   QwtPlotCurve* getQwtCurve();
+
   void setData(const FunctionData& function_data);
   void setName(const std::string& name);
 

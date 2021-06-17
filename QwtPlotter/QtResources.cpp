@@ -47,44 +47,16 @@ void QtResources::initZoomer() {
   Zoomer_.setMousePattern(QwtEventPattern::MouseSelect3, Qt::RightButton);
 }
 
-FunctionPlot& QtResources::getFunctionPlot1() {
-  return Plot1_;
+FunctionPlot* QtResources::getFunctionPlot1() {
+  return &Plot1_;
 }
 
-FunctionPlot& QtResources::getFunctionPlot2() {
-  return Plot2_;
+FunctionPlot* QtResources::getFunctionPlot2() {
+  return &Plot2_;
 }
 
-FunctionWithIntervalsPlot& QtResources::getFunctionPlot3() {
-  return Plot3_;
-}
-
-void QtResources::showFunctionPlot1(const FunctionData& function_data) {
-  Plot1_.setData(function_data);
-  Plot1_.show();
-}
-
-void QtResources::showFunctionPlot2(const FunctionData& function_data) {
-  Plot2_.setData(function_data);
-  Plot2_.show();
-}
-
-void QtResources::showFunctionPlot3(
-    const FunctionWithIntervalsData& function_data) {
-  Plot3_.setDataWithIntervals(function_data);
-  Plot3_.show();
-}
-
-void QtResources::hideFunctionPlot1() {
-  Plot1_.hide();
-}
-
-void QtResources::hideFunctionPlot2() {
-  Plot2_.hide();
-}
-
-void QtResources::hideFunctionPlot3() {
-  Plot3_.hide();
+FunctionWithIntervalsPlot* QtResources::getFunctionPlot3() {
+  return &Plot3_;
 }
 
 void QtResources::replot() {

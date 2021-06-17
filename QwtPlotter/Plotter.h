@@ -33,10 +33,15 @@ public slots:
 
 private:
   void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
+  void replot(const DataRefHolder& data);
 
 private:
   MainWindow* MainWindow_{nullptr};
   QtResources* QtResources_{nullptr};
+  FunctionPlot* Plot1_{nullptr};
+  FunctionPlot* Plot2_{nullptr};
+  FunctionWithIntervalsPlot* Plot3_{nullptr};
+
   NSSupport::Suppressor Suppressor_;
 
   DataRefHolder::CObserver DataInput_;
