@@ -11,8 +11,7 @@ public:
   FunctionWithIntervalsPlot(QwtPlot* source, QVBoxLayout* vbox);
   const std::vector<std::unique_ptr<QwtPlotCurve>>& getQwtIntervals() const;
 
-  void
-  setFunctionWithIntervalsPlot(const FunctionWithIntervalsData& function_data);
+  void setDataWithIntervals(const FunctionWithIntervalsData& function_data);
   void show() override;
   void hide() override;
 

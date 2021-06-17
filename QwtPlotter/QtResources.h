@@ -21,9 +21,16 @@ public:
   QtResources(QwtPlot* source, QVBoxLayout* vbox);
 
   FunctionPlot& getFunctionPlot1();
-  FunctionWithIntervalsPlot& getFunctionPlot2();
-  void setFunctionPlot1(const FunctionData& function_data);
-  void setFunctionPlot2(const FunctionWithIntervalsData& function_data);
+  FunctionPlot& getFunctionPlot2();
+  FunctionWithIntervalsPlot& getFunctionPlot3();
+
+  void showFunctionPlot1(const FunctionData& function_data);
+  void showFunctionPlot2(const FunctionData& function_data);
+  void showFunctionPlot3(const FunctionWithIntervalsData& function_data);
+
+  void hideFunctionPlot1();
+  void hideFunctionPlot2();
+  void hideFunctionPlot3();
 
   void replot();
   void updateZoomerBase();
@@ -45,7 +52,8 @@ private:
   Zoomer Zoomer_;
 
   FunctionPlot Plot1_;
-  FunctionWithIntervalsPlot Plot2_;
+  FunctionPlot Plot2_;
+  FunctionWithIntervalsPlot Plot3_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

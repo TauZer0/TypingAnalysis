@@ -14,14 +14,14 @@ namespace NSApplication::NSQwtPlotter {
 class PlotMaker {
 public:
   PlotMaker();
-  void controlPlot(bool show_plot1, bool show_plot2);
-  void subscribePlot(CObserverRefHolder* obs);
-  void subscribeText(CObserverText* obs);
+  void controlPlot(const VisibilityFlags& visibility);
+  void subscribePlot(DataRefHolder::CObserver* obs);
+  void subscribeText(TextHolder::CObserver* obs);
 
 private:
   template<typename T>
-  void setRef(OptionalRef<T>& ref_holder, T& data, bool flag) {
-    if (flag) {
+  static void setRef(OptionalRef<T>& ref_holder, T& data, bool is_visible) {
+    if (is_visible) {
       ref_holder.emplace(std::ref(data));
     } else {
       ref_holder.reset();
@@ -30,11 +30,12 @@ private:
 
 private:
   FunctionData Data1_;
-  FunctionWithIntervalsData Data2_;
+  FunctionData Data2_;
+  FunctionWithIntervalsData Data3_;
   DataRefHolder DataRefs_;
-  CObservableRefHolder DataPort_;
+  DataRefHolder::CObservable DataOutput_;
 
-  CObservableText TextPort_;
+  TextHolder::CObservable TextOutput_;
 
   NSSupport::Suppressor Suppressor_;
 };

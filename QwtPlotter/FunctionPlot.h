@@ -20,7 +20,7 @@ public:
   FunctionPlot(QwtPlot* source, QVBoxLayout* vbox);
   QCheckBox* getCheckbox();
   QwtPlotCurve* getQwtCurve();
-  void setFunctionPlot(const FunctionData& function_data);
+  void setData(const FunctionData& function_data);
   void setName(const std::string& name);
 
   virtual void show();

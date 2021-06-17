@@ -15,7 +15,7 @@ QwtPlotCurve* FunctionPlot::getQwtCurve() {
   return &QwtCurve_;
 }
 
-void FunctionPlot::setFunctionPlot(const FunctionData& function_data) {
+void FunctionPlot::setData(const FunctionData& function_data) {
   QwtCurve_.setPen(function_data.getColor());
   setQwtCurve(function_data.getCurveData());
 }
@@ -41,7 +41,6 @@ void FunctionPlot::initQwtCurve(QwtPlot* source) {
 void FunctionPlot::setQwtCurve(const CurveData& curve_data) {
   QwtCurve_.setRawSamples(curve_data.dataX(), curve_data.dataY(),
                           curve_data.dataSize());
-  QwtCurve_.show();
 }
 
 void FunctionPlot::show() {

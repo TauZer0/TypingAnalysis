@@ -9,12 +9,11 @@ namespace NSApplication::NSQwtPlotter {
 class Controller {
 public:
   explicit Controller(PlotMaker* plot_maker);
-
-  CObserverFlags* getBoolInput();
+  VisibilityFlags::CObserver* getVisibilityFlagsInput();
 
 private:
   PlotMaker* PlotMaker_{nullptr};
-  CObserverFlags BoolInput_;
+  VisibilityFlags::CObserver VisibilityFlagsInput_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

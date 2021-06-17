@@ -7,8 +7,6 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-// namespace NSDetail { ?
-
 template<typename T>
 using Ref = std::reference_wrapper<T>;
 
@@ -16,32 +14,32 @@ template<typename T>
 using OptionalRef = std::optional<Ref<T>>;
 
 struct DataRefHolder {
-  OptionalRef<FunctionData> optional_ref1_;
-  OptionalRef<FunctionWithIntervalsData> optional_ref2_;
+  using CObservable = NSLibrary::CObservableData<DataRefHolder>;
+  using CObserver = NSLibrary::CObserverHotStrict<DataRefHolder>;
+
+  OptionalRef<FunctionData> OptionalData1;
+  OptionalRef<FunctionData> OptionalData2;
+  OptionalRef<FunctionWithIntervalsData> OptionalData3;
 };
 
 struct TextHolder {
-  std::string title_;
-  std::string plot1_name_;
-  std::string plot2_name_;
+  using CObservable = NSLibrary::CObservableData<TextHolder>;
+  using CObserver = NSLibrary::CHotInput<TextHolder>;
+
+  std::string Title;
+  std::string NamePlot1;
+  std::string NamePlot2;
+  std::string NamePlot3;
 };
 
-struct Flags {
-  bool plot1_{false};
-  bool plot2_{false};
+struct VisibilityFlags {
+  using CObservable = NSLibrary::CObservable<VisibilityFlags>;
+  using CObserver = NSLibrary::CHotInput<VisibilityFlags>;
+
+  bool Plot1{false};
+  bool Plot2{false};
+  bool Plot3{false};
 };
-
-//} // namespace NSDetail
-
-// TODO
-using CObservableRefHolder = NSLibrary::CObservableData<DataRefHolder>;
-using CObserverRefHolder = NSLibrary::CHotInput<DataRefHolder>;
-
-using CObservableText = NSLibrary::CObservableData<TextHolder>;
-using CObserverText = NSLibrary::CHotInput<TextHolder>;
-
-using CObservableFlags = NSLibrary::CObservable<Flags>;
-using CObserverFlags = NSLibrary::CHotInput<Flags>;
 
 } // namespace NSApplication::NSQwtPlotter
 

@@ -14,39 +14,41 @@ static constexpr double kStep = 0.001;
 
 PlotMaker::PlotMaker()
     : Data1_(kBegin, kEnd, kStep, function_table["sin"], Qt::red),
-      Data2_(kBegin, kEnd, kStep, function_table["cos"], Qt::green) {
+      Data2_(kBegin, kEnd, kStep, function_table["ln"], Qt::blue),
+      Data3_(kBegin, kEnd, kStep, function_table["cos"], Qt::green) {
   double interval1_begin = 0.0;
   double interval1_end = 1.0;
   double interval2_begin = 0.5;
   double interval2_end = 4.0;
-  Data2_.createIntervalData(interval1_begin, interval1_end);
-  Data2_.createIntervalData(interval2_begin, interval2_end);
+  Data3_.createIntervalData(interval1_begin, interval1_end);
+  Data3_.createIntervalData(interval2_begin, interval2_end);
 
-  TextPort_.set(TextHolder{.title_ = "QwtPlotter",
-                           .plot1_name_ = "sin(x)",
-                           .plot2_name_ = "cos(x)"});
+  TextOutput_.set(TextHolder{.Title = "QwtPlotter",
+                             .NamePlot1 = "sin(x)",
+                             .NamePlot2 = "ln(x)",
+                             .NamePlot3 = "cos(x)"});
 }
 
-void PlotMaker::subscribePlot(CObserverRefHolder* obs) {
+void PlotMaker::subscribePlot(DataRefHolder::CObserver* obs) {
   assert(obs != nullptr);
-  DataPort_.subscribe(obs);
+  DataOutput_.subscribe(obs);
 }
 
-void PlotMaker::subscribeText(CObserverText* obs) {
+void PlotMaker::subscribeText(TextHolder::CObserver* obs) {
   assert(obs != nullptr);
-  TextPort_.subscribe(obs);
+  TextOutput_.subscribe(obs);
 }
 
-void PlotMaker::controlPlot(bool show_plot1, bool show_plot2) {
+void PlotMaker::controlPlot(const VisibilityFlags& visibility) {
   if (Suppressor_.isActive()) {
     return;
   }
 
   std::lock_guard guard(Suppressor_);
-  setRef(DataRefs_.optional_ref1_, Data1_, show_plot1);
-  setRef(DataRefs_.optional_ref2_, Data2_, show_plot2);
-
-  DataPort_.set(DataRefs_);
+  setRef(DataRefs_.OptionalData1, Data1_, visibility.Plot1);
+  setRef(DataRefs_.OptionalData2, Data2_, visibility.Plot2);
+  setRef(DataRefs_.OptionalData3, Data3_, visibility.Plot3);
+  DataOutput_.set(DataRefs_);
 }
 
 } // namespace NSApplication::NSQwtPlotter

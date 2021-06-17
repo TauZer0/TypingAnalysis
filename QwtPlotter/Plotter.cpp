@@ -6,62 +6,82 @@ namespace NSApplication::NSQwtPlotter {
 void processData(DataRefHolder& functions_data, QtResources* qt_resources) {
 
   // TODO
-  if (functions_data.optional_ref1_.has_value()) {
-    qt_resources->setFunctionPlot1(functions_data.optional_ref1_.value().get());
-    qt_resources->getFunctionPlot1().show();
+  if (functions_data.OptionalData1.has_value()) {
+    qt_resources->showFunctionPlot1(functions_data.OptionalData1.value().get());
   } else {
-    qt_resources->getFunctionPlot1().hide();
+    qt_resources->hideFunctionPlot1();
   }
 
-  if (functions_data.optional_ref2_.has_value()) {
-    qt_resources->setFunctionPlot2(functions_data.optional_ref2_.value().get());
-    qt_resources->getFunctionPlot2().show();
+  if (functions_data.OptionalData2.has_value()) {
+    qt_resources->showFunctionPlot2(functions_data.OptionalData2.value().get());
   } else {
-    qt_resources->getFunctionPlot2().hide();
+    qt_resources->hideFunctionPlot2();
+  }
+
+  if (functions_data.OptionalData3.has_value()) {
+    qt_resources->showFunctionPlot3(functions_data.OptionalData3.value().get());
+  } else {
+    qt_resources->hideFunctionPlot3();
   }
 
   NSSupport::LOG_DURATION("Replot duration");
   qt_resources->replot();
-  qt_resources->updateZoomerBase(); // FIXME
 }
 
 Plotter::Plotter(MainWindow* main_window)
     : MainWindow_(main_window), QtResources_(main_window->getQtResources()),
-      ObserverPlot_([main_window](DataRefHolder function_data) {
-        processData(function_data, main_window->getQtResources());
-      }),
-      ObserverText_([main_window](TextHolder text_data) {
-        main_window->setWindowTitle(text_data.title_.data());
+      DataInput_(
+          [main_window](DataRefHolder function_data) {
+            processData(function_data, main_window->getQtResources());
+            main_window->getQtResources()->updateZoomerBase();
+          },
+          [main_window](DataRefHolder function_data) {
+            processData(function_data, main_window->getQtResources());
+          }),
+      TextInput_([main_window](TextHolder text_data) {
+        main_window->setWindowTitle(text_data.Title.data());
         main_window->getQtResources()->getFunctionPlot1().setName(
-            text_data.plot1_name_);
+            text_data.NamePlot1);
         main_window->getQtResources()->getFunctionPlot2().setName(
-            text_data.plot2_name_);
+            text_data.NamePlot2);
+        main_window->getQtResources()->getFunctionPlot3().setName(
+            text_data.NamePlot3);
       }) {
-  FlagsOutput_.setSource([this]() { return std::ref(VisiblePlots_); });
+  VisibilityFlagsOutput_.setSource(
+      [this]() { return std::ref(VisibilityFlags_); });
   QtResources_->getFunctionPlot1().connectToSlot(this,
                                                  &Plotter::processCheckbox1);
   QtResources_->getFunctionPlot2().connectToSlot(this,
                                                  &Plotter::processCheckbox2);
+  QtResources_->getFunctionPlot3().connectToSlot(this,
+                                                 &Plotter::processCheckbox3);
 }
 
-CObserverRefHolder* Plotter::getPlotInput() {
-  return &ObserverPlot_;
+DataRefHolder::CObserver* Plotter::getDataInput() {
+  return &DataInput_;
 }
 
-CObserverText* Plotter::getTextInput() {
-  return &ObserverText_;
+TextHolder::CObserver* Plotter::getTextInput() {
+  return &TextInput_;
 }
 
-void Plotter::subscribeFlag(CObserverFlags* obs) {
-  FlagsOutput_.subscribe(obs);
+void Plotter::subscribeVisibilityFlags(VisibilityFlags::CObserver* obs) {
+  VisibilityFlagsOutput_.subscribe(obs);
 }
 
 void Plotter::processCheckbox1() {
-  processCheckboxImpl(static_cast<QCheckBox*>(sender()), VisiblePlots_.plot1_);
+  processCheckboxImpl(static_cast<QCheckBox*>(sender()),
+                      VisibilityFlags_.Plot1);
 }
 
 void Plotter::processCheckbox2() {
-  processCheckboxImpl(static_cast<QCheckBox*>(sender()), VisiblePlots_.plot2_);
+  processCheckboxImpl(static_cast<QCheckBox*>(sender()),
+                      VisibilityFlags_.Plot2);
+}
+
+void Plotter::processCheckbox3() {
+  processCheckboxImpl(static_cast<QCheckBox*>(sender()),
+                      VisibilityFlags_.Plot3);
 }
 
 void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
@@ -70,7 +90,7 @@ void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
   } else {
     is_visible = false;
   }
-  FlagsOutput_.notify();
+  VisibilityFlagsOutput_.notify();
 }
 
 } // namespace NSApplication::NSQwtPlotter

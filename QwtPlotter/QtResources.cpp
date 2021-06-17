@@ -4,7 +4,8 @@ namespace NSApplication::NSQwtPlotter {
 
 QtResources::QtResources(QwtPlot* source, QVBoxLayout* vbox)
     : Source_(source), Magnifier_(source->canvas()), Panner_(source->canvas()),
-      Zoomer_(source->canvas()), Plot1_(source, vbox), Plot2_(source, vbox) {
+      Zoomer_(source->canvas()), Plot1_(source, vbox), Plot2_(source, vbox),
+      Plot3_(source, vbox) {
   assert(source != nullptr);
   assert(vbox != nullptr);
   initGrid(source);
@@ -50,17 +51,40 @@ FunctionPlot& QtResources::getFunctionPlot1() {
   return Plot1_;
 }
 
-FunctionWithIntervalsPlot& QtResources::getFunctionPlot2() {
+FunctionPlot& QtResources::getFunctionPlot2() {
   return Plot2_;
 }
 
-void QtResources::setFunctionPlot1(const FunctionData& function_data) {
-  Plot1_.setFunctionPlot(function_data);
+FunctionWithIntervalsPlot& QtResources::getFunctionPlot3() {
+  return Plot3_;
 }
 
-void QtResources::setFunctionPlot2(
+void QtResources::showFunctionPlot1(const FunctionData& function_data) {
+  Plot1_.setData(function_data);
+  Plot1_.show();
+}
+
+void QtResources::showFunctionPlot2(const FunctionData& function_data) {
+  Plot2_.setData(function_data);
+  Plot2_.show();
+}
+
+void QtResources::showFunctionPlot3(
     const FunctionWithIntervalsData& function_data) {
-  Plot2_.setFunctionWithIntervalsPlot(function_data);
+  Plot3_.setDataWithIntervals(function_data);
+  Plot3_.show();
+}
+
+void QtResources::hideFunctionPlot1() {
+  Plot1_.hide();
+}
+
+void QtResources::hideFunctionPlot2() {
+  Plot2_.hide();
+}
+
+void QtResources::hideFunctionPlot3() {
+  Plot3_.hide();
 }
 
 void QtResources::replot() {
