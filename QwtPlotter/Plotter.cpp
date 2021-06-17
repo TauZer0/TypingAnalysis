@@ -3,49 +3,22 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-// TODO
-void Plotter::replot(const DataRefHolder& data) {
-  NSSupport::LOG_DURATION("Replot duration");
-  if (data.OptionalData1.has_value()) {
-    Plot1_->setData(data.OptionalData1.value().get());
-    Plot1_->show();
-  } else {
-    Plot1_->hide();
-  }
-
-  if (data.OptionalData2.has_value()) {
-    Plot2_->setData(data.OptionalData2.value().get());
-    Plot2_->show();
-  } else {
-    Plot2_->hide();
-  }
-
-  if (data.OptionalData3.has_value()) {
-    Plot3_->setDataWithIntervals(data.OptionalData3.value().get());
-    Plot3_->show();
-  } else {
-    Plot3_->hide();
-  }
-
-  QtResources_->replot();
-}
-
 Plotter::Plotter(MainWindow* main_window)
-    : MainWindow_(main_window), QtResources_(main_window->getQtResources()),
+    : MainWindow_(main_window), QtResources_(MainWindow_->getQtResources()),
       Plot1_(QtResources_->getFunctionPlot1()),
       Plot2_(QtResources_->getFunctionPlot2()),
       Plot3_(QtResources_->getFunctionPlot3()),
       DataInput_(
           [this](DataRefHolder data) {
-            Plotter::replot(data);
-            this->QtResources_->updateZoomerBase();
+            replot(data);
+            QtResources_->updateZoomerBase();
           },
-          [this](DataRefHolder data) { Plotter::replot(data); }),
+          [this](DataRefHolder data) { replot(data); }),
       TextInput_([this](TextHolder text_data) {
-        this->MainWindow_->setWindowTitle(text_data.Title.data());
-        this->Plot1_->setName(text_data.NamePlot1);
-        this->Plot2_->setName(text_data.NamePlot2);
-        this->Plot3_->setName(text_data.NamePlot3);
+        MainWindow_->setWindowTitle(text_data.Title.data());
+        Plot1_->setName(text_data.NamePlot1);
+        Plot2_->setName(text_data.NamePlot2);
+        Plot3_->setName(text_data.NamePlot3);
       }) {
 
   assert(MainWindow_ != nullptr);
@@ -95,6 +68,23 @@ void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
     is_visible = false;
   }
   VisibilityFlagsOutput_.notify();
+}
+
+void Plotter::replot(const DataRefHolder& functions_data) {
+  NSSupport::LOG_DURATION("Replot duration");
+  setPlot(*Plot1_, functions_data.OptionalData1);
+  setPlot(*Plot2_, functions_data.OptionalData2);
+  setPlot(*Plot3_, functions_data.OptionalData3);
+  QtResources_->replot();
+}
+
+void Plotter::setPlot(FunctionPlot& plot, OptionalRef<FunctionData> data) {
+  if (data.has_value()) {
+    plot.setData(data.value().get());
+    plot.show();
+  } else {
+    plot.hide();
+  }
 }
 
 } // namespace NSApplication::NSQwtPlotter

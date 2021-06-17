@@ -12,7 +12,7 @@ public:
 
   const std::vector<std::unique_ptr<QwtPlotCurve>>& getQwtIntervals() const;
 
-  void setDataWithIntervals(const FunctionWithIntervalsData& function_data);
+  void setData(const FunctionData& function_data) override;
 
   void show() override;
   void hide() override;

@@ -22,7 +22,7 @@ public:
   QCheckBox* getCheckbox();
   QwtPlotCurve* getQwtCurve();
 
-  void setData(const FunctionData& function_data);
+  virtual void setData(const FunctionData& function_data);
   void setName(const std::string& name);
 
   virtual void show();

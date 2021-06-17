@@ -34,6 +34,7 @@ public slots:
 private:
   void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
   void replot(const DataRefHolder& data);
+  static void setPlot(FunctionPlot& plot, OptionalRef<FunctionData> data);
 
 private:
   MainWindow* MainWindow_{nullptr};

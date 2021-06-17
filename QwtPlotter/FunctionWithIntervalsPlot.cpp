@@ -13,10 +13,9 @@ FunctionWithIntervalsPlot::getQwtIntervals() const {
   return QwtIntervals_;
 }
 
-void FunctionWithIntervalsPlot::setDataWithIntervals(
-    const FunctionWithIntervalsData& function_data) {
-  setData(function_data);
-  setQwtIntervals(function_data);
+void FunctionWithIntervalsPlot::setData(const FunctionData& function_data) {
+  FunctionPlot::setData(function_data);
+  setQwtIntervals(static_cast<const FunctionWithIntervalsData&>(function_data));
 }
 
 void FunctionWithIntervalsPlot::resizeQwtIntervals(size_t n) {
