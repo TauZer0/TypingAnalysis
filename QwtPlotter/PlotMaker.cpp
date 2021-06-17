@@ -6,11 +6,15 @@
 
 namespace NSApplication::NSQwtPlotter {
 
+namespace {
+
 static FunctionTable function_table;
 
 static constexpr double kBegin = 0.0;
 static constexpr double kEnd = 5.0;
 static constexpr double kStep = 0.001;
+
+} // namespace
 
 PlotMaker::PlotMaker()
     : Data1_(kBegin, kEnd, kStep, function_table["sin"], Qt::red),
