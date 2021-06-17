@@ -13,14 +13,18 @@ static constexpr double kEnd = 5.0;
 static constexpr double kStep = 0.001;
 
 PlotMaker::PlotMaker()
-    : Data1_(kBegin, kEnd, kStep, function_table["sin"], "sin(x)", Qt::red),
-      Data2_(kBegin, kEnd, kStep, function_table["cos"], "cos(x)", Qt::green) {
+    : Data1_(kBegin, kEnd, kStep, function_table["sin"], Qt::red),
+      Data2_(kBegin, kEnd, kStep, function_table["cos"], Qt::green) {
   double interval1_begin = 0.0;
   double interval1_end = 1.0;
   double interval2_begin = 0.5;
   double interval2_end = 4.0;
   Data2_.createIntervalData(interval1_begin, interval1_end);
   Data2_.createIntervalData(interval2_begin, interval2_end);
+
+  TextPort_.set(TextHolder{.title_ = "QwtPlotter",
+                           .plot1_name_ = "sin(x)",
+                           .plot2_name_ = "cos(x)"});
 }
 
 void PlotMaker::subscribePlot(CObserverRefHolder* obs) {

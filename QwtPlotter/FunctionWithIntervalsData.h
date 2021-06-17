@@ -8,8 +8,7 @@ namespace NSApplication::NSQwtPlotter {
 class FunctionWithIntervalsData : public FunctionData {
 public:
   FunctionWithIntervalsData(double begin, double end, double step,
-                            FunctionPtr function, const std::string& name,
-                            const QColor& color);
+                            FunctionPtr function, const QColor& color);
   void createIntervalData(double begin, double end);
   const CurveData& getIntervalData(size_t i) const;
   size_t getIntervalsDataSize() const;

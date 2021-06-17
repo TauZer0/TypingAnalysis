@@ -2,6 +2,7 @@
 #define PLOTTER_H
 
 #include "PlotMaker.h"
+#include "QwtPlotterWindow.h"
 #include "Support/Suppressor.h"
 
 #include <qwt_plot.h>
@@ -18,7 +19,7 @@ namespace NSApplication::NSQwtPlotter {
 
 class Plotter : public QObject {
 public:
-  Plotter(QtResources* qt_resources);
+  explicit Plotter(MainWindow* main_window);
 
   CObserverRefHolder* getPlotInput();
   CObserverText* getTextInput();
@@ -35,6 +36,7 @@ private:
   void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
 
 private:
+  MainWindow* MainWindow_{nullptr};
   QtResources* QtResources_{nullptr};
   NSSupport::Suppressor Suppressor_;
 

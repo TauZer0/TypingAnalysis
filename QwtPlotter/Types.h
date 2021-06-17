@@ -10,11 +10,20 @@ namespace NSApplication::NSQwtPlotter {
 // namespace NSDetail { ?
 
 template<typename T>
-using OptionalRef = std::optional<std::reference_wrapper<T>>;
+using Ref = std::reference_wrapper<T>;
 
-struct RefHolder {
+template<typename T>
+using OptionalRef = std::optional<Ref<T>>;
+
+struct DataRefHolder {
   OptionalRef<FunctionData> optional_ref1_;
   OptionalRef<FunctionWithIntervalsData> optional_ref2_;
+};
+
+struct TextHolder {
+  std::string title_;
+  std::string plot1_name_;
+  std::string plot2_name_;
 };
 
 struct Flags {
@@ -25,13 +34,11 @@ struct Flags {
 //} // namespace NSDetail
 
 // TODO
-using CObservableRefHolder = NSLibrary::CObservableData<RefHolder>;
-using CObserverRefHolder = NSLibrary::CHotInput<RefHolder>;
+using CObservableRefHolder = NSLibrary::CObservableData<DataRefHolder>;
+using CObserverRefHolder = NSLibrary::CHotInput<DataRefHolder>;
 
-using StringRef = std::reference_wrapper<std::string>;
-using Text = std::optional<StringRef>;
-using CObservableText = NSLibrary::CObservableData<Text>;
-using CObserverText = NSLibrary::CObserver<Text>;
+using CObservableText = NSLibrary::CObservableData<TextHolder>;
+using CObserverText = NSLibrary::CHotInput<TextHolder>;
 
 using CObservableFlags = NSLibrary::CObservable<Flags>;
 using CObserverFlags = NSLibrary::CHotInput<Flags>;

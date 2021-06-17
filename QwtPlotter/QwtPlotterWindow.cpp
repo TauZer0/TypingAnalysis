@@ -10,8 +10,6 @@ MainWindow::MainWindow(QWidget* parent)
   Ui_->setupUi(this);
   QtResources_ =
       std::make_unique<QtResources>(getPlotterSource(), getBoxSource());
-  // QCheckBox* checkbox_1 = (QCheckBox*)ui_->verticalLayout_1->children()[0];
-  // crash
 }
 
 MainWindow::~MainWindow() {

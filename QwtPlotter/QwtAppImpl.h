@@ -8,9 +8,9 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-class AppImpl {
+class QwtAppImpl {
 public:
-  explicit AppImpl(QtResources* qt_resources);
+  explicit QwtAppImpl(MainWindow* main_window);
 
 private:
   PlotMaker PlotMaker_;

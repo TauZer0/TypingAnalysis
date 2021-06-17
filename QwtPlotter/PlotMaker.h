@@ -31,11 +31,9 @@ private:
 private:
   FunctionData Data1_;
   FunctionWithIntervalsData Data2_;
-  RefHolder DataRefs_;
+  DataRefHolder DataRefs_;
   CObservableRefHolder DataPort_;
 
-  std::string Name1_;
-  std::string Name2_;
   CObservableText TextPort_;
 
   NSSupport::Suppressor Suppressor_;

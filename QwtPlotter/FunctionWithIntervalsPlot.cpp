@@ -37,7 +37,6 @@ void FunctionWithIntervalsPlot::setQwtInterval(size_t i,
   QwtIntervals_[i]->setRawSamples(interval_data.dataX(), interval_data.dataY(),
                                   interval_data.dataSize());
   QwtIntervals_[i]->setBrush(color);
-  QwtIntervals_[i]->show();
 }
 
 void FunctionWithIntervalsPlot::setQwtIntervals(

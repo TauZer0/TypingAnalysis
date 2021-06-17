@@ -3,9 +3,8 @@
 namespace NSApplication::NSQwtPlotter {
 
 FunctionData::FunctionData(double begin, double end, double step,
-                           FunctionPtr function, const std::string& name,
-                           const QColor& color)
-    : Color_(color), Function_(function), Name_(name) {
+                           FunctionPtr function, const QColor& color)
+    : Color_(color), Function_(function) {
   CurveData_.generate(begin, end, step, function);
 }
 
@@ -19,10 +18,6 @@ const CurveData& FunctionData::getCurveData() const {
 
 FunctionPtr FunctionData::getFunction() const {
   return Function_;
-}
-
-const std::string& FunctionData::getName() const {
-  return Name_;
 }
 
 } // namespace NSApplication::NSQwtPlotter

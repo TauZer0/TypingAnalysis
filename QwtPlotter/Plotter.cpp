@@ -3,12 +3,7 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-// TODO
-template<typename T>
-void noop(OptionalRef<const T>) {
-}
-
-void processData(RefHolder& functions_data, QtResources* qt_resources) {
+void processData(DataRefHolder& functions_data, QtResources* qt_resources) {
 
   // TODO
   if (functions_data.optional_ref1_.has_value()) {
@@ -27,15 +22,21 @@ void processData(RefHolder& functions_data, QtResources* qt_resources) {
 
   NSSupport::LOG_DURATION("Replot duration");
   qt_resources->replot();
-  qt_resources->updateZoomerBase();
+  qt_resources->updateZoomerBase(); // FIXME
 }
 
-Plotter::Plotter(QtResources* qt_resources)
-    : QtResources_(qt_resources),
-      ObserverPlot_([qt_resources](RefHolder function_data) {
-        processData(function_data, qt_resources);
+Plotter::Plotter(MainWindow* main_window)
+    : MainWindow_(main_window), QtResources_(main_window->getQtResources()),
+      ObserverPlot_([main_window](DataRefHolder function_data) {
+        processData(function_data, main_window->getQtResources());
       }),
-      ObserverText_(noop<Text>, noop<Text>, noop<Text>) {
+      ObserverText_([main_window](TextHolder text_data) {
+        main_window->setWindowTitle(text_data.title_.data());
+        main_window->getQtResources()->getFunctionPlot1().setName(
+            text_data.plot1_name_);
+        main_window->getQtResources()->getFunctionPlot2().setName(
+            text_data.plot2_name_);
+      }) {
   FlagsOutput_.setSource([this]() { return std::ref(VisiblePlots_); });
   QtResources_->getFunctionPlot1().connectToSlot(this,
                                                  &Plotter::processCheckbox1);

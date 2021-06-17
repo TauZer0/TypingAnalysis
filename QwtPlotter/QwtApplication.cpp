@@ -4,7 +4,7 @@ namespace NSApplication::NSQwtPlotter {
 
 QwtApplication::QwtApplication()
     : MainWindow_(std::make_unique<MainWindow>()),
-      AppImpl_(std::make_unique<AppImpl>(MainWindow_->getQtResources())) {
+      AppImpl_(std::make_unique<QwtAppImpl>(MainWindow_.get())) {
 }
 
 void QwtApplication::show() {

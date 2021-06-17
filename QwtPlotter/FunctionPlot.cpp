@@ -16,12 +16,14 @@ QwtPlotCurve* FunctionPlot::getQwtCurve() {
 }
 
 void FunctionPlot::setFunctionPlot(const FunctionData& function_data) {
-  Checkbox_.setText(function_data.getName().data());
-  Checkbox_.show();
-
   QwtCurve_.setPen(function_data.getColor());
-  QwtCurve_.setTitle(function_data.getName().data());
   setQwtCurve(function_data.getCurveData());
+}
+
+void FunctionPlot::setName(const std::string& name) {
+  Checkbox_.setText(name.data());
+  Checkbox_.show();
+  QwtCurve_.setTitle(name.data());
 }
 
 void FunctionPlot::initCheckbox(QVBoxLayout* vbox) {

@@ -5,9 +5,8 @@ namespace NSApplication::NSQwtPlotter {
 FunctionWithIntervalsData::FunctionWithIntervalsData(double begin, double end,
                                                      double step,
                                                      FunctionPtr function,
-                                                     const std::string& name,
                                                      const QColor& color)
-    : FunctionData(begin, end, step, function, name, color) {
+    : FunctionData(begin, end, step, function, color) {
 }
 
 void FunctionWithIntervalsData::createIntervalData(double begin, double end) {
