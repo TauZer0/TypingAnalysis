@@ -62,6 +62,7 @@ void Plotter::processCheckbox3() {
 }
 
 void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
+  NSSupport::LOG_DURATION("Replot duration");
   if (checkbox->isChecked()) {
     is_visible = true;
   } else {
@@ -71,7 +72,6 @@ void Plotter::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
 }
 
 void Plotter::replot(const DataRefHolder& functions_data) {
-  NSSupport::LOG_DURATION("Replot duration");
   setPlot(*Plot1_, functions_data.OptionalData1);
   setPlot(*Plot2_, functions_data.OptionalData2);
   setPlot(*Plot3_, functions_data.OptionalData3);

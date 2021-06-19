@@ -14,7 +14,7 @@ LogDuration::~LogDuration() {
   std::cerr
       << Message_
       << std::chrono::duration_cast<std::chrono::microseconds>(duration).count()
-      << " \u03BCs\n";
+      << "\u03BCs\n";
 }
 
 } // namespace NSApplication::NSSupport

@@ -1,6 +1,7 @@
 #ifndef QWTPLOTTERWINDOW_H
 #define QWTPLOTTERWINDOW_H
 
+#include "HotkeysInfo.h"
 #include "QtResources.h"
 
 #include <QMainWindow>
@@ -30,6 +31,7 @@ protected:
   QwtPlot* getPlotterSource();
 
 private:
+  HotkeysInfo HotkeysInfo_;
   Ui::QwtPlotterWindow* Ui_;
   std::unique_ptr<QtResources> QtResources_;
 };

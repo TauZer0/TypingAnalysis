@@ -96,6 +96,7 @@ HEADERS += \
   QwtPlotter/FunctionTable.h \
   QwtPlotter/FunctionWithIntervalsData.h \
   QwtPlotter/FunctionWithIntervalsPlot.h \
+  QwtPlotter/HotkeysInfo.h \
   QwtPlotter/PlotMaker.h \
   QwtPlotter/Plotter.h \
   QwtPlotter/QtResources.h \
@@ -142,6 +143,7 @@ SOURCES += \
   QwtPlotter/FunctionTable.cpp \
   QwtPlotter/FunctionWithIntervalsData.cpp \
   QwtPlotter/FunctionWithIntervalsPlot.cpp \
+  QwtPlotter/HotkeysInfo.cpp \
   QwtPlotter/PlotMaker.cpp \
   QwtPlotter/Plotter.cpp \
   QwtPlotter/QtResources.cpp \
@@ -157,6 +159,7 @@ SOURCES += \
 
 FORMS += \
   Qt/MainWindow.ui \
+  QwtPlotter/HotkeysInfo.ui \
   QwtPlotter/QwtPlotterWindow.ui
 
 
@@ -215,3 +218,5 @@ contains(DEFINES, KEYBOARD_HANDLER_DEBUG) {
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES +=

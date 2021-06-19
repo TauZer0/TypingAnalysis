@@ -28,8 +28,8 @@ public:
   void updateZoomerBase();
 
 private:
-  void initGrid(QwtPlot* source);
-  void initLegend(QwtPlot* source);
+  void initGrid();
+  void initLegend();
   void initMagnifier();
   void initPanner();
   void initZoomer();

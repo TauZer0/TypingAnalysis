@@ -8,26 +8,26 @@ QtResources::QtResources(QwtPlot* source, QVBoxLayout* vbox)
       Plot3_(source, vbox) {
   assert(source != nullptr);
   assert(vbox != nullptr);
-  initGrid(source);
-  initLegend(source);
+  initGrid();
+  initLegend();
   initMagnifier();
   initPanner();
   initZoomer();
 }
 
-void QtResources::initGrid(QwtPlot* source) {
+void QtResources::initGrid() {
   Grid_.enableXMin(true);
   Grid_.enableYMin(true);
   Grid_.setMajorPen(QPen(Qt::black, 0, Qt::DotLine));
   Grid_.setMinorPen(QPen(Qt::gray, 0, Qt::DotLine));
-  Grid_.attach(source);
+  Grid_.attach(Source_);
 }
 
-void QtResources::initLegend(QwtPlot* source) {
-  source->insertLegend(&Legend_, QwtPlot::BottomLegend);
-  source->setCanvasBackground(Qt::white);
-  source->setAxisTitle(QwtPlot::xBottom, "X");
-  source->setAxisTitle(QwtPlot::yLeft, "Y");
+void QtResources::initLegend() {
+  Source_->insertLegend(&Legend_, QwtPlot::BottomLegend);
+  Source_->setCanvasBackground(Qt::white);
+  Source_->setAxisTitle(QwtPlot::xBottom, "X");
+  Source_->setAxisTitle(QwtPlot::yLeft, "Y");
 }
 
 void QtResources::initMagnifier() {
