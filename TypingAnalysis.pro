@@ -98,6 +98,7 @@ HEADERS += \
   QwtPlotter/FunctionWithIntervalsPlot.h \
   QwtPlotter/HotkeysInfo.h \
   QwtPlotter/PlotMaker.h \
+  QwtPlotter/PlotMakerImpl.h \
   QwtPlotter/Plotter.h \
   QwtPlotter/PlotterImpl.h \
   QwtPlotter/QtResources.h \
@@ -146,6 +147,7 @@ SOURCES += \
   QwtPlotter/FunctionWithIntervalsPlot.cpp \
   QwtPlotter/HotkeysInfo.cpp \
   QwtPlotter/PlotMaker.cpp \
+  QwtPlotter/PlotMakerImpl.cpp \
   QwtPlotter/Plotter.cpp \
   QwtPlotter/PlotterImpl.cpp \
   QwtPlotter/QtResources.cpp \

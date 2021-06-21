@@ -7,7 +7,7 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-class Plotter : public QObject {
+class Plotter {
 public:
   explicit Plotter(MainWindow* main_window);
 

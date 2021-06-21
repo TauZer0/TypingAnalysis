@@ -1,7 +1,7 @@
 #ifndef PLOTTERIMPL_H
 #define PLOTTERIMPL_H
 
-#include "PlotMaker.h"
+#include "PlotMakerImpl.h"
 #include "QwtPlotterWindow.h"
 #include "Support/Suppressor.h"
 
