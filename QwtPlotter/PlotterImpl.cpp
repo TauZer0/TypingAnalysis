@@ -1,6 +1,8 @@
 #include "PlotterImpl.h"
 #include "Support/Profiler.h"
 
+#include <mutex>
+
 namespace NSApplication::NSQwtPlotter {
 
 namespace NSDetail {
@@ -16,12 +18,7 @@ PlotterImpl::PlotterImpl(MainWindow* main_window)
             QtResources_->updateZoomerBase();
           },
           [this](DataRefHolder data) { replot(data); }),
-      TextInput_([this](TextHolder text_data) {
-        MainWindow_->setWindowTitle(text_data.Title.data());
-        Plot1_->setName(text_data.NamePlot1);
-        Plot2_->setName(text_data.NamePlot2);
-        Plot3_->setName(text_data.NamePlot3);
-      }) {
+      TextInput_([this](TextHolder text_data) { setText(text_data); }) {
 
   assert(MainWindow_ != nullptr);
   assert(QtResources_ != nullptr);
@@ -83,6 +80,18 @@ void PlotterImpl::setPlot(FunctionPlot& plot, OptionalRef<FunctionData> data) {
   } else {
     plot.hide();
   }
+}
+
+void PlotterImpl::setText(const TextHolder& text_data) {
+  if (Suppressor_.isActive()) {
+    return;
+  }
+
+  std::lock_guard guard(Suppressor_);
+  MainWindow_->setWindowTitle(text_data.Title.data());
+  Plot1_->setName(text_data.NamePlot1);
+  Plot2_->setName(text_data.NamePlot2);
+  Plot3_->setName(text_data.NamePlot3);
 }
 
 } // namespace NSDetail

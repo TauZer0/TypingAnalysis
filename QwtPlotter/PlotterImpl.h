@@ -38,6 +38,8 @@ public slots:
 private:
   void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
   void replot(const DataRefHolder& data);
+  void setText(const TextHolder& text_data);
+
   static void setPlot(FunctionPlot& plot, OptionalRef<FunctionData> data);
 
 private:
