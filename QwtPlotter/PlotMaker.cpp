@@ -43,7 +43,7 @@ void PlotMaker::subscribeText(TextHolder::CObserver* obs) {
   TextOutput_.subscribe(obs);
 }
 
-void PlotMaker::controlPlot(const VisibilityFlags& visibility) {
+void PlotMaker::controlPlot(const CheckboxState& visibility) {
   if (Suppressor_.isActive()) {
     return;
   }

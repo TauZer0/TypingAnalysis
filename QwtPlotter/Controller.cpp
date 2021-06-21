@@ -4,13 +4,13 @@ namespace NSApplication::NSQwtPlotter {
 
 Controller::Controller(PlotMaker* plot_maker)
     : PlotMaker_(plot_maker),
-      VisibilityFlagsInput_([plot_maker](VisibilityFlags visibility) {
+      CheckboxStateInput_([plot_maker](CheckboxState visibility) {
         plot_maker->controlPlot(visibility);
       }) {
 }
 
-VisibilityFlags::CObserver* Controller::getVisibilityFlagsInput() {
-  return &VisibilityFlagsInput_;
+CheckboxState::CObserver* Controller::getCheckboxStateInput() {
+  return &CheckboxStateInput_;
 }
 
 } // namespace NSApplication::NSQwtPlotter

@@ -14,7 +14,7 @@ namespace NSApplication::NSQwtPlotter {
 class PlotMaker {
 public:
   PlotMaker();
-  void controlPlot(const VisibilityFlags& visibility);
+  void controlPlot(const CheckboxState& visibility);
   void subscribePlot(DataRefHolder::CObserver* obs);
   void subscribeText(TextHolder::CObserver* obs);
 

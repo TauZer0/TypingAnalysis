@@ -1,0 +1,63 @@
+#ifndef PLOTTERIMPL_H
+#define PLOTTERIMPL_H
+
+#include "PlotMaker.h"
+#include "QwtPlotterWindow.h"
+#include "Support/Suppressor.h"
+
+#include <qwt_plot.h>
+#include <qwt_plot_curve.h>
+
+#include <QCheckBox>
+#include <QObject>
+
+#include <string>
+
+#include "QtResources.h"
+
+namespace NSApplication::NSQwtPlotter {
+
+namespace NSDetail {
+
+class PlotterImpl : public QObject {
+  // friend class Plotter;
+
+public:
+  explicit PlotterImpl(MainWindow* main_window);
+
+  DataRefHolder::CObserver* getDataInput();
+  TextHolder::CObserver* getTextInput();
+
+  void subscribeCheckboxState(CheckboxState::CObserver* obs);
+
+public slots:
+  void processCheckbox1();
+  void processCheckbox2();
+  void processCheckbox3();
+
+private:
+  void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
+  void replot(const DataRefHolder& data);
+  static void setPlot(FunctionPlot& plot, OptionalRef<FunctionData> data);
+
+private:
+  MainWindow* MainWindow_{nullptr};
+  QtResources* QtResources_{nullptr};
+  FunctionPlot* Plot1_{nullptr};
+  FunctionPlot* Plot2_{nullptr};
+  FunctionWithIntervalsPlot* Plot3_{nullptr};
+
+  NSSupport::Suppressor Suppressor_;
+
+  DataRefHolder::CObserver DataInput_;
+  TextHolder::CObserver TextInput_;
+
+  CheckboxState CheckboxState_{true, true, true};
+  CheckboxState::CObservable CheckboxStateOutput_;
+};
+
+} // namespace NSDetail
+
+} // namespace NSApplication::NSQwtPlotter
+
+#endif // PLOTTERIMPL_H

@@ -99,6 +99,7 @@ HEADERS += \
   QwtPlotter/HotkeysInfo.h \
   QwtPlotter/PlotMaker.h \
   QwtPlotter/Plotter.h \
+  QwtPlotter/PlotterImpl.h \
   QwtPlotter/QtResources.h \
   QwtPlotter/QwtAppImpl.h \
   QwtPlotter/QwtApplication.h \
@@ -146,6 +147,7 @@ SOURCES += \
   QwtPlotter/HotkeysInfo.cpp \
   QwtPlotter/PlotMaker.cpp \
   QwtPlotter/Plotter.cpp \
+  QwtPlotter/PlotterImpl.cpp \
   QwtPlotter/QtResources.cpp \
   QwtPlotter/QwtAppImpl.cpp \
   QwtPlotter/QwtApplication.cpp \

@@ -1,19 +1,9 @@
 #ifndef PLOTTER_H
 #define PLOTTER_H
 
-#include "PlotMaker.h"
-#include "QwtPlotterWindow.h"
-#include "Support/Suppressor.h"
+#include "PlotterImpl.h"
 
-#include <qwt_plot.h>
-#include <qwt_plot_curve.h>
-
-#include <QCheckBox>
-#include <QObject>
-
-#include <string>
-
-#include "QtResources.h"
+#include <memory>
 
 namespace NSApplication::NSQwtPlotter {
 
@@ -24,32 +14,10 @@ public:
   DataRefHolder::CObserver* getDataInput();
   TextHolder::CObserver* getTextInput();
 
-  void subscribeVisibilityFlags(VisibilityFlags::CObserver* obs);
-
-public slots:
-  void processCheckbox1();
-  void processCheckbox2();
-  void processCheckbox3();
+  void subscribeCheckboxState(CheckboxState::CObserver* obs);
 
 private:
-  void processCheckboxImpl(QCheckBox* checkbox, bool& is_visible);
-  void replot(const DataRefHolder& data);
-  static void setPlot(FunctionPlot& plot, OptionalRef<FunctionData> data);
-
-private:
-  MainWindow* MainWindow_{nullptr};
-  QtResources* QtResources_{nullptr};
-  FunctionPlot* Plot1_{nullptr};
-  FunctionPlot* Plot2_{nullptr};
-  FunctionWithIntervalsPlot* Plot3_{nullptr};
-
-  NSSupport::Suppressor Suppressor_;
-
-  DataRefHolder::CObserver DataInput_;
-  TextHolder::CObserver TextInput_;
-
-  VisibilityFlags VisibilityFlags_{true, true, true};
-  VisibilityFlags::CObservable VisibilityFlagsOutput_;
+  std::unique_ptr<NSDetail::PlotterImpl> Impl_;
 };
 
 } // namespace NSApplication::NSQwtPlotter

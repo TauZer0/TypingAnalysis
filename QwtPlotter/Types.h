@@ -32,9 +32,9 @@ struct TextHolder {
   std::string NamePlot3;
 };
 
-struct VisibilityFlags {
-  using CObservable = NSLibrary::CObservable<VisibilityFlags>;
-  using CObserver = NSLibrary::CHotInput<VisibilityFlags>;
+struct CheckboxState {
+  using CObservable = NSLibrary::CObservable<CheckboxState>;
+  using CObserver = NSLibrary::CHotInput<CheckboxState>;
 
   bool Plot1{false};
   bool Plot2{false};
