@@ -14,6 +14,8 @@ public:
   void subscribePlot(DataRefHolder::CObserver* obs);
   void subscribeText(TextHolder::CObserver* obs);
 
+  NSDetail::PlotMakerImpl* getImpl();
+
 private:
   std::unique_ptr<NSDetail::PlotMakerImpl> Impl_;
 };

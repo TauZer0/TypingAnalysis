@@ -90,6 +90,7 @@ HEADERS += \
   KeyboardHandlerAccess.h \
   QtLoopException.h \
   QwtPlotter/Controller.h \
+  QwtPlotter/ControllerImpl.h \
   QwtPlotter/CurveData.h \
   QwtPlotter/FunctionData.h \
   QwtPlotter/FunctionPlot.h \
@@ -139,6 +140,7 @@ SOURCES += \
   ApplicationKernel.cpp \
   ExceptionHandler.cpp \
   QwtPlotter/Controller.cpp \
+  QwtPlotter/ControllerImpl.cpp \
   QwtPlotter/CurveData.cpp \
   QwtPlotter/FunctionData.cpp \
   QwtPlotter/FunctionPlot.cpp \

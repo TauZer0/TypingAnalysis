@@ -17,4 +17,8 @@ void PlotMaker::subscribeText(TextHolder::CObserver* obs) {
   Impl_->subscribeText(obs);
 }
 
+NSDetail::PlotMakerImpl* PlotMaker::getImpl() {
+  return Impl_.get();
+}
+
 } // namespace NSApplication::NSQwtPlotter

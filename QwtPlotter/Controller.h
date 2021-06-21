@@ -1,8 +1,10 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include "ControllerImpl.h"
 #include "PlotMaker.h"
-#include "Types.h"
+
+#include <memory>
 
 namespace NSApplication::NSQwtPlotter {
 
@@ -12,8 +14,7 @@ public:
   CheckboxState::CObserver* getCheckboxStateInput();
 
 private:
-  PlotMaker* PlotMaker_{nullptr};
-  CheckboxState::CObserver CheckboxStateInput_;
+  std::unique_ptr<NSDetail::ControllerImpl> Impl_;
 };
 
 } // namespace NSApplication::NSQwtPlotter
