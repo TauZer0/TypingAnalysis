@@ -1,6 +1,8 @@
 #include "QtResources.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 QtResources::QtResources(QwtPlot* source, QVBoxLayout* vbox)
     : Source_(source), Magnifier_(source->canvas()), Panner_(source->canvas()),
@@ -67,4 +69,6 @@ void QtResources::updateZoomerBase() {
   Zoomer_.updateBase();
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

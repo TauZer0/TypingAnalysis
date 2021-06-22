@@ -1,6 +1,8 @@
 #include "FunctionWithIntervalsData.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 FunctionWithIntervalsData::FunctionWithIntervalsData(double begin, double end,
                                                      double step,
@@ -39,4 +41,6 @@ int FunctionWithIntervalsData::getIntervalsOpacity() const {
   return kIntervalsOpacity_;
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

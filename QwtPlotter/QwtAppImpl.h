@@ -6,7 +6,9 @@
 #include "Plotter.h"
 #include "QtResources.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class QwtAppImpl {
 public:
@@ -18,6 +20,8 @@ private:
   Controller Controller_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // QWTAPPIMPL_H

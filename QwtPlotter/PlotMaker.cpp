@@ -1,6 +1,8 @@
 #include "PlotMaker.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 PlotMaker::PlotMaker() : Impl_(std::make_unique<NSDetail::PlotMakerImpl>()) {
 }
@@ -21,4 +23,6 @@ NSDetail::PlotMakerImpl* PlotMaker::getImpl() {
   return Impl_.get();
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

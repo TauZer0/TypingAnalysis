@@ -1,6 +1,8 @@
 #include "ControllerImpl.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 namespace NSDetail {
 
@@ -17,4 +19,6 @@ CheckboxState::CObserver* ControllerImpl::getCheckboxStateInput() {
 
 } // namespace NSDetail
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

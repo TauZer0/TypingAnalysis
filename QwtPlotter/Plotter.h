@@ -5,7 +5,9 @@
 
 #include <memory>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class Plotter {
 public:
@@ -20,6 +22,8 @@ private:
   std::unique_ptr<NSDetail::PlotterImpl> Impl_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // PLOTTER_H

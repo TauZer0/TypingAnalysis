@@ -1,6 +1,8 @@
 #include "FunctionWithIntervalsPlot.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 FunctionWithIntervalsPlot::FunctionWithIntervalsPlot(QwtPlot* source,
                                                      QVBoxLayout* vbox)
@@ -64,4 +66,6 @@ void FunctionWithIntervalsPlot::hide() {
   }
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

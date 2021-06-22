@@ -1,6 +1,8 @@
 #include "CurveData.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 void CurveData::addPoint(double x, double y) {
   X_.push_back(x);
@@ -50,4 +52,6 @@ void CurveData::generateY(FunctionPtr function) {
   }
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

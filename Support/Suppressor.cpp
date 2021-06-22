@@ -1,6 +1,8 @@
 #include "Support/Suppressor.h"
 
-namespace NSApplication::NSSupport {
+namespace NSApplication {
+
+namespace NSSupport {
 
 void Suppressor::activate() {
   IsActive_ = true;
@@ -23,4 +25,6 @@ void Suppressor::unlock() {
   deactivate();
 }
 
-} // namespace NSApplication::NSSupport
+} // namespace NSSupport
+
+} // namespace NSApplication

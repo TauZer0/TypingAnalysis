@@ -6,7 +6,9 @@
 
 #include <memory>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class QwtApplication {
 public:
@@ -18,6 +20,8 @@ private:
   std::unique_ptr<QwtAppImpl> AppImpl_{nullptr};
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // QWTAPPLICATION_H

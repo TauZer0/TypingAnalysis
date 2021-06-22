@@ -1,6 +1,8 @@
 #include "FunctionData.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 FunctionData::FunctionData(double begin, double end, double step,
                            FunctionPtr function, const QColor& color)
@@ -20,4 +22,6 @@ FunctionPtr FunctionData::getFunction() const {
   return Function_;
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

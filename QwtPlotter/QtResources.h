@@ -14,7 +14,9 @@
 
 #include <QCheckBox>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class QtResources {
 public:
@@ -48,6 +50,8 @@ private:
   FunctionWithIntervalsPlot Plot3_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // QRESOURCES_H

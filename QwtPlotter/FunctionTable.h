@@ -1,10 +1,13 @@
-#pragma once
+#ifndef FUNCTIONTABLE_H
+#define FUNCTIONTABLE_H
 
 #include <cmath>
 #include <map>
 #include <string>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 using FunctionSignature = double(double);
 using FunctionPtr = FunctionSignature*;
@@ -20,4 +23,8 @@ private:
   std::map<FunctionName, FunctionPtr> FunctionMap_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
+
+#endif // FUNCTIONTABLE_H

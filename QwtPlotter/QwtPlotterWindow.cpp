@@ -5,7 +5,9 @@
 #include <QDialog>
 #include <QMenuBar>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent), HotkeysInfo_(this), Ui_(new Ui::QwtPlotterWindow) {
@@ -32,4 +34,6 @@ QtResources* MainWindow::getQtResources() {
   return QtResources_.get();
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

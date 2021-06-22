@@ -9,7 +9,9 @@ class HotkeysDialog;
 
 }
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class HotkeysInfo : public QDialog {
   Q_OBJECT
@@ -22,6 +24,8 @@ private:
   Ui::HotkeysDialog* ui;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // QWTPLOTTERHOTKEYSINFO_H

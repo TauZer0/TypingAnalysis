@@ -4,7 +4,9 @@
 #include "PlotMakerImpl.h"
 #include "Types.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 namespace NSDetail {
 
@@ -20,6 +22,8 @@ private:
 
 } // namespace NSDetail
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // CONTROLLERIMPL_H

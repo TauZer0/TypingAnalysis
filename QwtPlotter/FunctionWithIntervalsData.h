@@ -3,7 +3,9 @@
 
 #include "FunctionData.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class FunctionWithIntervalsData : public FunctionData {
 public:
@@ -15,10 +17,12 @@ public:
   int getIntervalsOpacity() const;
 
 private:
-  std::vector<CurveData> IntervalsData_;
   static constexpr int kIntervalsOpacity_ = 50;
+  std::vector<CurveData> IntervalsData_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // FUNCTIONWITHINTERVALSDATA_H

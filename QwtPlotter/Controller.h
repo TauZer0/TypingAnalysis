@@ -6,7 +6,9 @@
 
 #include <memory>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class Controller {
 public:
@@ -17,6 +19,8 @@ private:
   std::unique_ptr<NSDetail::ControllerImpl> Impl_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // CONTROLLER_H

@@ -5,7 +5,9 @@
 
 #include <vector>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class CurveData {
 public:
@@ -28,6 +30,8 @@ private:
   std::vector<double> Y_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // CURVEDATA_H

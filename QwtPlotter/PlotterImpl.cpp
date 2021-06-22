@@ -3,7 +3,9 @@
 
 #include <mutex>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 namespace NSDetail {
 
@@ -96,4 +98,6 @@ void PlotterImpl::setText(const TextHolder& text_data) {
 
 } // namespace NSDetail
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

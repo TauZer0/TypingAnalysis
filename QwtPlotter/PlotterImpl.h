@@ -15,13 +15,13 @@
 
 #include "QtResources.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 namespace NSDetail {
 
 class PlotterImpl : public QObject {
-  // friend class Plotter;
-
 public:
   explicit PlotterImpl(MainWindow* main_window);
 
@@ -60,6 +60,8 @@ private:
 
 } // namespace NSDetail
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // PLOTTERIMPL_H

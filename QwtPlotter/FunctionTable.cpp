@@ -1,6 +1,8 @@
 #include "FunctionTable.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 FunctionTable::FunctionTable() {
   FunctionMap_ = {
@@ -17,4 +19,6 @@ FunctionPtr FunctionTable::operator[](FunctionName&& name) const {
   return FunctionMap_.at(name);
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

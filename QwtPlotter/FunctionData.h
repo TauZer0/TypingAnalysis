@@ -5,7 +5,9 @@
 
 #include "CurveData.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class FunctionData {
 public:
@@ -21,6 +23,8 @@ protected:
   FunctionPtr Function_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // FUNCTIONDATA_H

@@ -15,7 +15,9 @@ class QwtPlotterWindow;
 }
 QT_END_NAMESPACE
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class MainWindow : public QMainWindow {
   Q_OBJECT
@@ -36,6 +38,8 @@ private:
   std::unique_ptr<QtResources> QtResources_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // QWTPLOTTERWINDOW_H

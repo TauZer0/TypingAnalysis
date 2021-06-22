@@ -1,6 +1,8 @@
 #include "QwtApplication.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 QwtApplication::QwtApplication()
     : MainWindow_(std::make_unique<MainWindow>()),
@@ -11,4 +13,6 @@ void QwtApplication::show() {
   MainWindow_->show();
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

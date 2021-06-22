@@ -2,7 +2,9 @@
 
 #include <iostream>
 
-namespace NSApplication::NSSupport {
+namespace NSApplication {
+
+namespace NSSupport {
 
 LogDuration::LogDuration(const std::string& message)
     : Message_(message + ": "), Start_(std::chrono::steady_clock::now()) {
@@ -17,4 +19,6 @@ LogDuration::~LogDuration() {
       << "\u03BCs\n";
 }
 
-} // namespace NSApplication::NSSupport
+} // namespace NSSupport
+
+} // namespace NSApplication

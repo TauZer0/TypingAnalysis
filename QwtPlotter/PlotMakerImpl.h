@@ -9,7 +9,9 @@
 #include "Library/Observer/Observer.h"
 #include "Types.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 namespace NSDetail {
 
@@ -31,11 +33,11 @@ private:
   }
 
 private:
-  inline static const FunctionTable FunctionTable_;
+  inline static const FunctionTable kFunctionTable_;
 
-  static constexpr double kBegin = 0.0;
-  static constexpr double kEnd = 5.0;
-  static constexpr double kStep = 0.001;
+  static constexpr double kBegin_ = 0.0;
+  static constexpr double kEnd_ = 5.0;
+  static constexpr double kStep_ = 0.001;
 
 private:
   FunctionData Data1_;
@@ -51,6 +53,8 @@ private:
 
 } // namespace NSDetail
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // PLOTMAKERIMPL_H

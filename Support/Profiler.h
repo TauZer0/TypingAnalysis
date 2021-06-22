@@ -4,7 +4,9 @@
 #include <chrono>
 #include <string>
 
-namespace NSApplication::NSSupport {
+namespace NSApplication {
+
+namespace NSSupport {
 
 class LogDuration {
 public:
@@ -21,6 +23,8 @@ private:
 
 #define LOG_DURATION(message) LogDuration UNIQ_ID(__LINE__){message};
 
-} // namespace NSApplication::NSSupport
+} // namespace NSSupport
+
+} // namespace NSApplication
 
 #endif // PROFILER_H

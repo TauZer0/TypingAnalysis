@@ -3,7 +3,9 @@
 
 #include <qwt_plot_zoomer.h>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class Zoomer : public QwtPlotZoomer {
 public:
@@ -15,6 +17,8 @@ private:
   static constexpr int kDefaultBackgroundAlpha_ = 200;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // ZOOMER_H

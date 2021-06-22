@@ -5,7 +5,9 @@
 #include "FunctionWithIntervalsData.h"
 #include "Library/Observer/Observer.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 template<typename T>
 using Ref = std::reference_wrapper<T>;
@@ -41,6 +43,8 @@ struct CheckboxState {
   bool Plot3{false};
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // TYPES_H

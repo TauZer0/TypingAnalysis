@@ -3,7 +3,9 @@
 #include "PlotterImpl.h"
 #include "Support/Profiler.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 Plotter::Plotter(MainWindow* main_window)
     : Impl_(std::make_unique<NSDetail::PlotterImpl>(main_window)) {
@@ -21,4 +23,6 @@ void Plotter::subscribeCheckboxState(CheckboxState::CObserver* obs) {
   Impl_->subscribeCheckboxState(obs);
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

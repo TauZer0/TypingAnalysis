@@ -1,7 +1,9 @@
 #include "HotkeysInfo.h"
 #include "ui_HotkeysInfo.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 HotkeysInfo::HotkeysInfo(QWidget* parent)
     : QDialog(parent), ui(new Ui::HotkeysDialog) {
@@ -12,4 +14,6 @@ HotkeysInfo::~HotkeysInfo() {
   delete ui;
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

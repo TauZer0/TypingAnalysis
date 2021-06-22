@@ -1,7 +1,9 @@
 #ifndef SUPPRESSOR_H
 #define SUPPRESSOR_H
 
-namespace NSApplication::NSSupport {
+namespace NSApplication {
+
+namespace NSSupport {
 
 class Suppressor {
 public:
@@ -17,6 +19,8 @@ private:
   bool IsActive_{false};
 };
 
-} // namespace NSApplication::NSSupport
+} // namespace NSSupport
+
+} // namespace NSApplication
 
 #endif // SUPPRESSOR_H

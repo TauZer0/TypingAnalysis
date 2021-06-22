@@ -4,14 +4,16 @@
 
 #include <mutex>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 namespace NSDetail {
 
 PlotMakerImpl::PlotMakerImpl()
-    : Data1_(kBegin, kEnd, kStep, FunctionTable_["sin"], Qt::red),
-      Data2_(kBegin, kEnd, kStep, FunctionTable_["ln"], Qt::blue),
-      Data3_(kBegin, kEnd, kStep, FunctionTable_["cos"], Qt::green) {
+    : Data1_(kBegin_, kEnd_, kStep_, kFunctionTable_["sin"], Qt::red),
+      Data2_(kBegin_, kEnd_, kStep_, kFunctionTable_["ln"], Qt::blue),
+      Data3_(kBegin_, kEnd_, kStep_, kFunctionTable_["cos"], Qt::green) {
   double interval1_begin = 0.0;
   double interval1_end = 1.0;
   double interval2_begin = 0.5;
@@ -46,4 +48,6 @@ void PlotMakerImpl::controlPlot(const CheckboxState& checkbox_state) {
 
 } // namespace NSDetail
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

@@ -4,7 +4,9 @@
 #include "FunctionPlot.h"
 #include "FunctionWithIntervalsData.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class FunctionWithIntervalsPlot : public FunctionPlot {
 public:
@@ -30,6 +32,8 @@ private:
   std::vector<std::unique_ptr<QwtPlotCurve>> QwtIntervals_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // FUNCTIONWITHINTERVALSPLOT_H

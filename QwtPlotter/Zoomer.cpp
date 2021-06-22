@@ -1,6 +1,8 @@
 #include "Zoomer.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 Zoomer::Zoomer(QWidget* canvas) : QwtPlotZoomer(canvas) {
   setTrackerMode(AlwaysOn);
@@ -18,4 +20,6 @@ void Zoomer::updateBase() {
   setZoomBase(scaleRect());
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

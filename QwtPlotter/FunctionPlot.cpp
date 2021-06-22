@@ -1,6 +1,8 @@
 #include "FunctionPlot.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 FunctionPlot::FunctionPlot(QwtPlot* source, QVBoxLayout* vbox) {
   initQwtCurve(source);
@@ -51,4 +53,6 @@ void FunctionPlot::hide() {
   QwtCurve_.hide();
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication

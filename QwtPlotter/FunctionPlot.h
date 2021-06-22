@@ -11,7 +11,9 @@
 #include <qwt_plot.h>
 #include <qwt_plot_curve.h>
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 class FunctionPlot : public QObject {
   Q_OBJECT
@@ -47,6 +49,8 @@ protected:
   QwtPlotCurve QwtCurve_;
 };
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
 
 #endif // FUNCTIONPLOT_H

@@ -1,6 +1,8 @@
 #include "QwtAppImpl.h"
 
-namespace NSApplication::NSQwtPlotter {
+namespace NSApplication {
+
+namespace NSQwtPlotter {
 
 QwtAppImpl::QwtAppImpl(MainWindow* main_window)
     : Plotter_(main_window), Controller_(&PlotMaker_) {
@@ -10,4 +12,6 @@ QwtAppImpl::QwtAppImpl(MainWindow* main_window)
   PlotMaker_.subscribePlot(Plotter_.getDataInput());
 }
 
-} // namespace NSApplication::NSQwtPlotter
+} // namespace NSQwtPlotter
+
+} // namespace NSApplication
