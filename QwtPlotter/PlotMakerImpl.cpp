@@ -29,10 +29,7 @@ PlotMakerImpl::PlotMakerImpl()
   Data3_.createIntervalData(interval1_begin, interval1_end);
   Data3_.createIntervalData(interval2_begin, interval2_end);
 
-  TextOutput_.set(TextHolder{.Title = "QwtPlotter",
-                             .NamePlot1 = "sin(x)",
-                             .NamePlot2 = "ln(x)",
-                             .NamePlot3 = "cos(x)"});
+  TextOutput_.set(TextHolder{"QwtPlotter", "sin(x)", "ln(x)", "cos(x)"});
 }
 
 void PlotMakerImpl::subscribePlot(DataRefHolder::CObserver* obs) {
