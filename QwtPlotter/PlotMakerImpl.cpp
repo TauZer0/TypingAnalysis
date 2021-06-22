@@ -6,22 +6,12 @@
 
 namespace NSApplication::NSQwtPlotter {
 
-namespace {
-
-static FunctionTable function_table;
-
-static constexpr double kBegin = 0.0;
-static constexpr double kEnd = 5.0;
-static constexpr double kStep = 0.001;
-
-} // namespace
-
 namespace NSDetail {
 
 PlotMakerImpl::PlotMakerImpl()
-    : Data1_(kBegin, kEnd, kStep, function_table["sin"], Qt::red),
-      Data2_(kBegin, kEnd, kStep, function_table["ln"], Qt::blue),
-      Data3_(kBegin, kEnd, kStep, function_table["cos"], Qt::green) {
+    : Data1_(kBegin, kEnd, kStep, FunctionTable_["sin"], Qt::red),
+      Data2_(kBegin, kEnd, kStep, FunctionTable_["ln"], Qt::blue),
+      Data3_(kBegin, kEnd, kStep, FunctionTable_["cos"], Qt::green) {
   double interval1_begin = 0.0;
   double interval1_end = 1.0;
   double interval2_begin = 0.5;

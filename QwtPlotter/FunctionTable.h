@@ -13,8 +13,8 @@ using FunctionName = std::string;
 class FunctionTable {
 public:
   FunctionTable();
-  FunctionPtr operator[](const FunctionName& name);
-  FunctionPtr operator[](FunctionName&& name);
+  FunctionPtr operator[](const FunctionName& name) const;
+  FunctionPtr operator[](FunctionName&& name) const;
 
 private:
   std::map<FunctionName, FunctionPtr> FunctionMap_;

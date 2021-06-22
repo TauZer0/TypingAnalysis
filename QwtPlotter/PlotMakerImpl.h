@@ -31,6 +31,13 @@ private:
   }
 
 private:
+  inline static const FunctionTable FunctionTable_;
+
+  static constexpr double kBegin = 0.0;
+  static constexpr double kEnd = 5.0;
+  static constexpr double kStep = 0.001;
+
+private:
   FunctionData Data1_;
   FunctionData Data2_;
   FunctionWithIntervalsData Data3_;

@@ -9,12 +9,12 @@ FunctionTable::FunctionTable() {
   };
 }
 
-FunctionPtr FunctionTable::operator[](const FunctionName& name) {
-  return FunctionMap_[name];
+FunctionPtr FunctionTable::operator[](const FunctionName& name) const {
+  return FunctionMap_.at(name);
 }
 
-FunctionPtr FunctionTable::operator[](FunctionName&& name) {
-  return FunctionMap_[name];
+FunctionPtr FunctionTable::operator[](FunctionName&& name) const {
+  return FunctionMap_.at(name);
 }
 
 } // namespace NSApplication::NSQwtPlotter
