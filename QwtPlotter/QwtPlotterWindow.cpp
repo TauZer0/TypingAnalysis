@@ -8,7 +8,7 @@
 namespace NSApplication::NSQwtPlotter {
 
 MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent), Ui_(new Ui::QwtPlotterWindow) {
+    : QMainWindow(parent), HotkeysInfo_(this), Ui_(new Ui::QwtPlotterWindow) {
   Ui_->setupUi(this);
   QtResources_ =
       std::make_unique<QtResources>(getPlotterSource(), getBoxSource());
