@@ -8,8 +8,8 @@ namespace NSDetail {
 
 ControllerImpl::ControllerImpl(PlotMakerImpl* plot_maker)
     : PlotMaker_(plot_maker),
-      CheckboxStateInput_([plot_maker](CheckboxState visibility) {
-        plot_maker->controlPlot(visibility);
+      CheckboxStateInput_([plot_maker](CheckboxState checkbox_state) {
+        plot_maker->controlPlot(checkbox_state);
       }) {
 }
 
