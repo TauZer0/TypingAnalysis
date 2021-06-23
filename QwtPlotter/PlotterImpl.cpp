@@ -69,6 +69,11 @@ void PlotterImpl::processCheckboxImpl(QCheckBox* checkbox, bool& is_visible) {
 }
 
 void PlotterImpl::replot(const DataRefHolder& functions_data) {
+  if (Suppressor_.isActive()) {
+    return;
+  }
+
+  std::lock_guard guard(Suppressor_);
   setPlot(*Plot1_, functions_data.OptionalData1);
   setPlot(*Plot2_, functions_data.OptionalData2);
   setPlot(*Plot3_, functions_data.OptionalData3);
@@ -85,11 +90,6 @@ void PlotterImpl::setPlot(FunctionPlot& plot, OptionalRef<FunctionData> data) {
 }
 
 void PlotterImpl::setText(const TextHolder& text_data) {
-  if (Suppressor_.isActive()) {
-    return;
-  }
-
-  std::lock_guard guard(Suppressor_);
   MainWindow_->setWindowTitle(text_data.Title.data());
   Plot1_->setName(text_data.NamePlot1);
   Plot2_->setName(text_data.NamePlot2);
