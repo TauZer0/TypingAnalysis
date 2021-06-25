@@ -4,7 +4,7 @@
 #include "Controller.h"
 #include "PlotMaker.h"
 #include "Plotter.h"
-#include "QtResources.h"
+#include "QwtPlotterWindow.h"
 
 namespace NSApplication {
 

@@ -2,12 +2,20 @@
 #define PLOTTER_H
 
 #include "PlotterImpl.h"
+#include "QwtPlotterWindow.h"
+#include "Types.h"
 
 #include <memory>
 
 namespace NSApplication {
 
 namespace NSQwtPlotter {
+
+// namespace NSDetail {
+
+// class PlotterImpl;
+
+//} // namespace NSDetail
 
 class Plotter {
 public:

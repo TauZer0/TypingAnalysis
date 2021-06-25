@@ -1,5 +1,7 @@
 #include "PlotMaker.h"
 
+#include "PlotMakerImpl.h"
+
 namespace NSApplication {
 
 namespace NSQwtPlotter {

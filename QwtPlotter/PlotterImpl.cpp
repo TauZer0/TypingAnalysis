@@ -1,4 +1,5 @@
 #include "PlotterImpl.h"
+
 #include "Support/Profiler.h"
 
 #include <mutex>

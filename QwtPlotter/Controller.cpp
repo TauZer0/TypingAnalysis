@@ -1,5 +1,7 @@
 #include "Controller.h"
 
+//#include "ControllerImpl.h"
+
 namespace NSApplication {
 
 namespace NSQwtPlotter {

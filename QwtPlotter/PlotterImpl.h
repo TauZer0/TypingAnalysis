@@ -1,19 +1,12 @@
 #ifndef PLOTTERIMPL_H
 #define PLOTTERIMPL_H
 
-#include "PlotMakerImpl.h"
+#include "QtResources.h"
 #include "QwtPlotterWindow.h"
 #include "Support/Suppressor.h"
+#include "Types.h"
 
-#include <qwt_plot.h>
-#include <qwt_plot_curve.h>
-
-#include <QCheckBox>
 #include <QObject>
-
-#include <string>
-
-#include "QtResources.h"
 
 namespace NSApplication {
 

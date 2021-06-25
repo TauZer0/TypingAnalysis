@@ -1,13 +1,13 @@
 #ifndef PLOTMAKERIMPL_H
 #define PLOTMAKERIMPL_H
 
-#include "Support/Suppressor.h"
-#include <QCheckBox>
-
 #include "FunctionData.h"
 #include "FunctionWithIntervalsData.h"
 #include "Library/Observer/Observer.h"
+#include "Support/Suppressor.h"
 #include "Types.h"
+
+#include <QCheckBox>
 
 namespace NSApplication {
 

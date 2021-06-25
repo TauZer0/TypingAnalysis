@@ -1,6 +1,6 @@
 #include "Plotter.h"
 
-#include "PlotterImpl.h"
+//#include "PlotterImpl.h"
 #include "Support/Profiler.h"
 
 namespace NSApplication {

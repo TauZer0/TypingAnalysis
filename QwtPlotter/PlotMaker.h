@@ -1,13 +1,19 @@
 #ifndef PLOTMAKER_H
 #define PLOTMAKER_H
 
-#include "PlotMakerImpl.h"
+#include "Types.h"
 
 #include <memory>
 
 namespace NSApplication {
 
 namespace NSQwtPlotter {
+
+namespace NSDetail {
+
+class PlotMakerImpl;
+
+}
 
 class PlotMaker {
 public:

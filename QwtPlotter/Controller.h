@@ -10,6 +10,12 @@ namespace NSApplication {
 
 namespace NSQwtPlotter {
 
+// namespace NSDetail {
+
+// class ControllerImpl;
+
+//}
+
 class Controller {
 public:
   explicit Controller(PlotMaker* plot_maker);

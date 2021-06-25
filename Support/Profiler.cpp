@@ -1,6 +1,6 @@
 #include "Profiler.h"
 
-#include <iostream>
+#include <QDebug>
 
 namespace NSApplication {
 
@@ -13,8 +13,8 @@ LogDuration::LogDuration(const std::string& message)
 LogDuration::~LogDuration() {
   auto finish = std::chrono::steady_clock::now();
   auto duration = finish - Start_;
-  std::cerr
-      << Message_
+  qDebug()
+      << Message_.data()
       << std::chrono::duration_cast<std::chrono::microseconds>(duration).count()
       << "\u03BCs\n";
 }
