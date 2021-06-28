@@ -1,6 +1,7 @@
 #ifndef PLOTMAKER_H
 #define PLOTMAKER_H
 
+#include "PlotMakerImpl.h"
 #include "Types.h"
 
 #include <memory>
@@ -9,20 +10,23 @@ namespace NSApplication {
 
 namespace NSQwtPlotter {
 
-namespace NSDetail {
+// namespace NSDetail {
 
-class PlotMakerImpl;
+// class PlotMakerImpl;
 
-}
+//} // namespace NSDetail
 
 class PlotMaker {
+  using ControlFunctionSignature = void(const CheckboxState&);
+
+public:
+  using ControlFunctionPtr = ControlFunctionSignature*;
+
 public:
   PlotMaker();
-  void controlPlot(const CheckboxState& checkbox_state);
+  ControlFunctionPtr getControlFunction() const;
   void subscribePlot(DataRefHolder::CObserver* obs);
   void subscribeText(TextHolder::CObserver* obs);
-
-  NSDetail::PlotMakerImpl* getImpl();
 
 private:
   std::unique_ptr<NSDetail::PlotMakerImpl> Impl_;

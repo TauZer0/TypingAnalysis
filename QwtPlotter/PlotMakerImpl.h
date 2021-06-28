@@ -18,11 +18,14 @@ namespace NSDetail {
 class PlotMakerImpl {
 public:
   PlotMakerImpl();
-  void controlPlot(const CheckboxState& checkbox_state);
   void subscribePlot(DataRefHolder::CObserver* obs);
   void subscribeText(TextHolder::CObserver* obs);
 
+  static void controlPlot(const CheckboxState& checkbox_state);
+
 private:
+  void controlPlotImpl(const CheckboxState& checkbox_state);
+
   template<typename T>
   static void setRef(OptionalRef<T>& ref_holder, T& data, bool is_visible) {
     if (is_visible) {

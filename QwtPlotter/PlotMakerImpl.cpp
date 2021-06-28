@@ -10,10 +10,20 @@ namespace NSQwtPlotter {
 
 namespace NSDetail {
 
+namespace {
+
+static PlotMakerImpl* CurrentPlotMaker{nullptr};
+
+} // namespace
+
 PlotMakerImpl::PlotMakerImpl()
     : Data1_(kBegin_, kEnd_, kStep_, kFunctionTable_["sin"], Qt::red),
       Data2_(kBegin_, kEnd_, kStep_, kFunctionTable_["ln"], Qt::blue),
       Data3_(kBegin_, kEnd_, kStep_, kFunctionTable_["cos"], Qt::green) {
+
+  assert(CurrentPlotMaker == nullptr);
+  CurrentPlotMaker = this;
+
   double interval1_begin = 0.0;
   double interval1_end = 1.0;
   double interval2_begin = 0.5;
@@ -35,6 +45,11 @@ void PlotMakerImpl::subscribeText(TextHolder::CObserver* obs) {
 }
 
 void PlotMakerImpl::controlPlot(const CheckboxState& checkbox_state) {
+  assert(CurrentPlotMaker != nullptr);
+  CurrentPlotMaker->controlPlotImpl(checkbox_state);
+}
+
+void PlotMakerImpl::controlPlotImpl(const CheckboxState& checkbox_state) {
   if (Suppressor_.isActive()) {
     return;
   }

@@ -1,7 +1,7 @@
 #ifndef CONTROLLERIMPL_H
 #define CONTROLLERIMPL_H
 
-#include "PlotMakerImpl.h"
+#include "PlotMaker.h"
 #include "Types.h"
 
 namespace NSApplication {
@@ -12,11 +12,11 @@ namespace NSDetail {
 
 class ControllerImpl {
 public:
-  explicit ControllerImpl(PlotMakerImpl* plot_maker);
+  explicit ControllerImpl(PlotMaker::ControlFunctionPtr control_method);
   CheckboxState::CObserver* getCheckboxStateInput();
 
 private:
-  PlotMakerImpl* PlotMaker_{nullptr};
+  PlotMaker::ControlFunctionPtr ControlFunction_{nullptr};
   CheckboxState::CObserver CheckboxStateInput_;
 };
 

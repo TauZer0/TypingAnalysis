@@ -1,16 +1,12 @@
 #include "PlotMaker.h"
 
-#include "PlotMakerImpl.h"
+//#include "PlotMakerImpl.h"
 
 namespace NSApplication {
 
 namespace NSQwtPlotter {
 
 PlotMaker::PlotMaker() : Impl_(std::make_unique<NSDetail::PlotMakerImpl>()) {
-}
-
-void PlotMaker::controlPlot(const CheckboxState& checkbox_state) {
-  Impl_->controlPlot(checkbox_state);
 }
 
 void PlotMaker::subscribePlot(DataRefHolder::CObserver* obs) {
@@ -21,8 +17,8 @@ void PlotMaker::subscribeText(TextHolder::CObserver* obs) {
   Impl_->subscribeText(obs);
 }
 
-NSDetail::PlotMakerImpl* PlotMaker::getImpl() {
-  return Impl_.get();
+PlotMaker::ControlFunctionPtr PlotMaker::getControlFunction() const {
+  return NSDetail::PlotMakerImpl::controlPlot;
 }
 
 } // namespace NSQwtPlotter

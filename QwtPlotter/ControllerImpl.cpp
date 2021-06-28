@@ -6,10 +6,10 @@ namespace NSQwtPlotter {
 
 namespace NSDetail {
 
-ControllerImpl::ControllerImpl(PlotMakerImpl* plot_maker)
-    : PlotMaker_(plot_maker),
-      CheckboxStateInput_([plot_maker](CheckboxState checkbox_state) {
-        plot_maker->controlPlot(checkbox_state);
+ControllerImpl::ControllerImpl(PlotMaker::ControlFunctionPtr control_method)
+    : ControlFunction_(control_method),
+      CheckboxStateInput_([this](CheckboxState checkbox_state) {
+        ControlFunction_(checkbox_state);
       }) {
 }
 

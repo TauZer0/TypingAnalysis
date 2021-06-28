@@ -2,7 +2,6 @@
 #define CONTROLLER_H
 
 #include "ControllerImpl.h"
-#include "PlotMaker.h"
 
 #include <memory>
 
@@ -18,7 +17,7 @@ namespace NSQwtPlotter {
 
 class Controller {
 public:
-  explicit Controller(PlotMaker* plot_maker);
+  explicit Controller(PlotMaker::ControlFunctionPtr control_function);
   CheckboxState::CObserver* getCheckboxStateInput();
 
 private:

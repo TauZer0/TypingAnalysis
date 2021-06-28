@@ -6,8 +6,8 @@ namespace NSApplication {
 
 namespace NSQwtPlotter {
 
-Controller::Controller(PlotMaker* plot_maker)
-    : Impl_(std::make_unique<NSDetail::ControllerImpl>(plot_maker->getImpl())) {
+Controller::Controller(PlotMaker::ControlFunctionPtr control_function)
+    : Impl_(std::make_unique<NSDetail::ControllerImpl>(control_function)) {
 }
 
 CheckboxState::CObserver* Controller::getCheckboxStateInput() {
