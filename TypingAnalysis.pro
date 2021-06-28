@@ -2,7 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++17 rtti_off warn_on
+CONFIG += c++17 rtti_off warn_on qwt
 
 DEFINES += KEYBOARD_HANDLER_DEBUG
 
@@ -89,6 +89,27 @@ HEADERS += \
   ExceptionHandler.h \
   KeyboardHandlerAccess.h \
   QtLoopException.h \
+  QwtPlotter/Controller.h \
+  QwtPlotter/ControllerImpl.h \
+  QwtPlotter/CurveData.h \
+  QwtPlotter/FunctionData.h \
+  QwtPlotter/FunctionPlot.h \
+  QwtPlotter/FunctionTable.h \
+  QwtPlotter/FunctionWithIntervalsData.h \
+  QwtPlotter/FunctionWithIntervalsPlot.h \
+  QwtPlotter/HotkeysInfo.h \
+  QwtPlotter/PlotMaker.h \
+  QwtPlotter/PlotMakerImpl.h \
+  QwtPlotter/Plotter.h \
+  QwtPlotter/PlotterImpl.h \
+  QwtPlotter/QtResources.h \
+  QwtPlotter/QwtAppImpl.h \
+  QwtPlotter/QwtApplication.h \
+  QwtPlotter/QwtPlotterWindow.h \
+  QwtPlotter/Types.h \
+  QwtPlotter/Zoomer.h \
+  Support/Profiler.h \
+  Support/Suppressor.h \
   TimeApp.h \
   Timer.h \
   TimerAccess.h
@@ -118,12 +139,34 @@ SOURCES += \
   ApplicationImpl.cpp \
   ApplicationKernel.cpp \
   ExceptionHandler.cpp \
+  QwtPlotter/Controller.cpp \
+  QwtPlotter/ControllerImpl.cpp \
+  QwtPlotter/CurveData.cpp \
+  QwtPlotter/FunctionData.cpp \
+  QwtPlotter/FunctionPlot.cpp \
+  QwtPlotter/FunctionTable.cpp \
+  QwtPlotter/FunctionWithIntervalsData.cpp \
+  QwtPlotter/FunctionWithIntervalsPlot.cpp \
+  QwtPlotter/HotkeysInfo.cpp \
+  QwtPlotter/PlotMaker.cpp \
+  QwtPlotter/PlotMakerImpl.cpp \
+  QwtPlotter/Plotter.cpp \
+  QwtPlotter/PlotterImpl.cpp \
+  QwtPlotter/QtResources.cpp \
+  QwtPlotter/QwtAppImpl.cpp \
+  QwtPlotter/QwtApplication.cpp \
+  QwtPlotter/QwtPlotterWindow.cpp \
+  QwtPlotter/Zoomer.cpp \
+  Support/Profiler.cpp \
+  Support/Suppressor.cpp \
   TimeApp.cpp \
   Timer.cpp \
   main.cpp
 
 FORMS += \
-  Qt/MainWindow.ui
+  Qt/MainWindow.ui \
+  QwtPlotter/HotkeysInfo.ui \
+  QwtPlotter/QwtPlotterWindow.ui
 
 
 win32 {
@@ -181,3 +224,5 @@ contains(DEFINES, KEYBOARD_HANDLER_DEBUG) {
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES +=
